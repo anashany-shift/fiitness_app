@@ -57,6 +57,7 @@ abstract class AppColors {
   });
 
   static const Color gray = Color(0xFF535353);
+  static const Color backgroundColor = Color(0xFF1A1A1A);
   static const Color red = Color(0xffCC1010);
   static const Color green = Color(0xFF0CB359);
   static const Color lightPink = Color(0xFFF9ECF0);
