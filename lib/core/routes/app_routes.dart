@@ -1,4 +1,5 @@
 
+import 'package:fitness_app/features/auth/login/view/login_view.dart';
 import 'package:fitness_app/features/on_boarding/view/on_boarding_view.dart';
 import 'package:fitness_app/features/splash/view/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,10 @@ abstract class AppRoutes {
       case Routes.onBoarding:
         return MaterialPageRoute(
           builder: (_) => const OnBoardingView(),
+        );
+         case Routes.login:
+        return MaterialPageRoute(
+          builder: (_) => const LoginView(),
         );
    
 
