@@ -57,6 +57,7 @@ dependencies:
   equatable: ^2.0.7
   bloc_test: ^10.0.0
   animate_do: ^4.2.0
+  dots_indicator: ^4.0.1
 
 dev_dependencies: 
   injectable_generator: ^2.6.1
@@ -116,5 +117,3 @@ flutter:
     - family: BalooThambi2
       fonts:
         - asset: assets/fonts/BalooThambi2-Regular.ttf
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
