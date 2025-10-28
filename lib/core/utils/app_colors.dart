@@ -29,7 +29,7 @@ abstract class AppColors {
     100: Color(0xFFE9E9E9),
   });
 
-  static MaterialColor mainColorL = const MaterialColor(0xFFFF4100, <int, Color>{
+  static MaterialColor mainColorL = const MaterialColor(0xFFD21E6A, <int, Color>{
     10: Color(0xFFFF4100),
     20: Color(0xFFFF541A),
     30: Color(0xFFFF6733),

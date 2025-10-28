@@ -10,7 +10,7 @@ abstract class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.backGroundL[10],
-    fontFamily:"BalooThambi2",
+    fontFamily: "BalooThambi2",
     colorScheme: ColorScheme(
       brightness: Brightness.light,
       primary: AppColors.mainColorL,
@@ -22,27 +22,21 @@ abstract class AppTheme {
       surface: AppColors.white,
       onSurface: AppColors.mainColorL,
     ),
-    // textTheme: TextTheme(
-    //   bodySmall: getTextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
-    //   bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
-    //   bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
-
-    //   headlineLarge: getTextStyle(
-    //     fontSize: 24.sp,
-    //     fontFamily: ConstKeys.balooThambi2Font,
-    //     fontWeight: FontWeight.w800
-    //   ),
-    //   headlineMedium: getTextStyle(
-    //     fontSize: 18.sp,
-    //     fontWeight: FontWeight.w400,
-    //   ),
-    //   headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
-    //   labelSmall: getTextStyle(
-    //     fontSize: 12.sp,
-    //     fontWeight: FontWeight.w400,
-    //     fontFamily: ConstKeys.balooThambi2Font,
-    //   ),
-    // ),
+    textTheme: TextTheme(
+      bodySmall: getTextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
+      bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
+      bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+      headlineMedium: getTextStyle(
+        fontSize: 18.sp,
+        fontWeight: FontWeight.w400,
+      ),
+      headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
+      labelSmall: getTextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        fontFamily: ConstKeys.balooThambi2Font,
+      ),
+    ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.white,
       surfaceTintColor: Colors.transparent,
@@ -94,17 +88,11 @@ abstract class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-          padding:EdgeInsetsGeometry.symmetric(vertical: 9,horizontal:16 ),
         backgroundColor: AppColors.mainColorL,
-       // disabledBackgroundColor: AppColors.black[30],
+        disabledBackgroundColor: AppColors.black[30],
         foregroundColor: AppColors.white,
-        textStyle: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w800,color: AppColors.white),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: BorderSide.none
-        
-      
-        ),
+        textStyle: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
       ),
     ),
 
