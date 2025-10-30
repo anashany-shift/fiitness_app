@@ -1,6 +1,7 @@
 
 import 'package:fitness_app/core/constants/const_keys.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
+import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,64 +23,42 @@ abstract class AppTheme {
       surface: AppColors.white,
       onSurface: AppColors.mainColorL,
     ),
-    // textTheme: TextTheme(
-    //   bodySmall: getTextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400),
-    //   bodyMedium: getTextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
-    //   bodyLarge: getTextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
-
-    //   headlineLarge: getTextStyle(
-    //     fontSize: 24.sp,
-    //     fontFamily: ConstKeys.balooThambi2Font,
-    //     fontWeight: FontWeight.w800
+    
+    // appBarTheme: AppBarTheme(
+    //   backgroundColor:Colors.transparent,
+    //   surfaceTintColor: Colors.transparent,
+    //   elevation: 0,
+    //   titleTextStyle: getTextStyle(
+    //     fontSize: 20.sp,
+    //     fontWeight: FontWeight.w800,
     //   ),
-    //   headlineMedium: getTextStyle(
-    //     fontSize: 18.sp,
-    //     fontWeight: FontWeight.w400,
-    //   ),
-    //   headlineSmall: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400),
-    //   labelSmall: getTextStyle(
-    //     fontSize: 12.sp,
-    //     fontWeight: FontWeight.w400,
-    //     fontFamily: ConstKeys.balooThambi2Font,
-    //   ),
+    //   iconTheme: IconThemeData(color: AppColors.black),
     // ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.white,
-      surfaceTintColor: Colors.transparent,
-      elevation: 0,
-      titleTextStyle: getTextStyle(
-        fontSize: 20.sp,
-        fontWeight: FontWeight.w800,
-      ),
-      iconTheme: IconThemeData(color: AppColors.black),
-    ),
 
     inputDecorationTheme: InputDecorationTheme(
+  
+
       filled: false,
-   
      // contentPadding: EdgeInsets.only(left: 16.w, top: 4.h, bottom: 4.h),
-      hintStyle: getTextStyle(
-        color: AppColors.white[70],
-        fontFamily: ConstKeys.balooThambi2Font,
-        fontWeight: FontWeight.w400,
-      ),
-      labelStyle: getTextStyle(
-        color: AppColors.gray,
-        fontFamily: ConstKeys.balooThambi2Font,
-        fontWeight: FontWeight.w400,
-      ),
+      hintStyle:AppTextStyle.regular12.copyWith(color: AppColors.lgihtGray),
+      labelStyle: AppTextStyle.regular12.copyWith(color: AppColors.lgihtGray),
+    
+  
+
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
           return getTextStyle(color: AppColors.red);
         }
-        return getTextStyle(color: AppColors.gray);
+        return getTextStyle(color: AppColors.lgihtGray);
       }),
       errorStyle: getTextStyle(color: AppColors.red),
-      border: getOutlineInputBorder(color: AppColors.gray),
-      focusedBorder: getOutlineInputBorder(color: AppColors.gray),
-      enabledBorder: getOutlineInputBorder(color: AppColors.gray),
+      border: getOutlineInputBorder(color: AppColors.lgihtGray),
+      focusedBorder: getOutlineInputBorder(color: AppColors.lgihtGray),
+      enabledBorder: getOutlineInputBorder(color: AppColors.lgihtGray),
       errorBorder: getOutlineInputBorder(color: AppColors.red),
+    
     ),
+    te
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
         color: AppColors.red,
@@ -122,7 +101,7 @@ abstract class AppTheme {
 
   static InputBorder getOutlineInputBorder({required Color color}) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(4.r),
+      borderRadius: BorderRadius.circular(20.r),
       borderSide: BorderSide(color: color, width: 1.w),
     );
   }

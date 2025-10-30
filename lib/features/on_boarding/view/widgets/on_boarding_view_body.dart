@@ -186,7 +186,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: BlurredContainer(
-              padding: const EdgeInsets.only(top: 31.5, right: 16, left: 16),
+              bottomBorderRadius: 0,
+              padding: const EdgeInsets.only(top: 31.5, right: 16, left: 16,),
               width: double.infinity,
               height: 275,
               child: Column(
