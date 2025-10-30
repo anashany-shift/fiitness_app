@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';

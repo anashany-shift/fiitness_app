@@ -36,10 +36,11 @@ abstract class AppTheme {
     // ),
 
     inputDecorationTheme: InputDecorationTheme(
+      contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 16),
   
 
       filled: false,
-     // contentPadding: EdgeInsets.only(left: 16.w, top: 4.h, bottom: 4.h),
+    
       hintStyle:AppTextStyle.regular12.copyWith(color: AppColors.lgihtGray),
       labelStyle: AppTextStyle.regular12.copyWith(color: AppColors.lgihtGray),
     
@@ -58,7 +59,7 @@ abstract class AppTheme {
       errorBorder: getOutlineInputBorder(color: AppColors.red),
     
     ),
-    te
+    
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
         color: AppColors.red,
@@ -101,7 +102,7 @@ abstract class AppTheme {
 
   static InputBorder getOutlineInputBorder({required Color color}) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(20.r),
+      borderRadius: BorderRadius.circular(30.r),
       borderSide: BorderSide(color: color, width: 1.w),
     );
   }

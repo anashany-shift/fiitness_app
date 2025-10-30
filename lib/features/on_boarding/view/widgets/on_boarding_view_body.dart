@@ -8,6 +8,7 @@ import 'package:fitness_app/core/widget/blurred_container.dart';
 import 'package:fitness_app/core/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'on_boarding_page_model.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -187,10 +188,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             alignment: Alignment.bottomCenter,
             child: BlurredContainer(
               bottomBorderRadius: 0,
-              padding: const EdgeInsets.only(top: 31.5, right: 16, left: 16,),
+              padding: const EdgeInsets.only(top: 31.5, right: 16, left: 16,bottom: 31.5),
               width: double.infinity,
-              height: 275,
+              
               child: Column(
+                 mainAxisSize: MainAxisSize.min,
                 children: [
                   AnimatedSwitcher(
                     duration: const Duration(milliseconds: 300),
@@ -225,7 +227,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                   SizedBox(height: 24.h),
                   DotsIndicator(
                     dotsCount: pages.length,
                     position: _currentPageIndex.toDouble(),
@@ -242,6 +244,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       ),
                     ),
                   ),
+                   SizedBox(height: 24.h),
                   _buildButtons(_currentPageIndex),
                 ],
               ),

@@ -15,32 +15,34 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlurredBackground(
       imagePath: AppAssets.authBg,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAuthAppBar(onBackTap: () {}),
-          SizedBox(height: 78.h),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Hey There\n', // first line
-                    style: AppTextStyle.regular18,
-                  ),
-                  TextSpan(
-                    text: 'WELCOME BACK', // second line
-                    style: AppTextStyle.extraBold20,
-                  ),
-                ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomAuthAppBar(onBackTap: () {}),
+            SizedBox(height: 78.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0.sp),
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Hey There\n', // first line
+                      style: AppTextStyle.regular18,
+                    ),
+                    TextSpan(
+                      text: 'WELCOME BACK', // second line
+                      style: AppTextStyle.extraBold20,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-
-          SizedBox(height: 16.h),
-          LoginForm(),
-        ],
+        
+            SizedBox(height: 16.h),
+            LoginForm(),
+          ],
+        ),
       ),
     );
   }
