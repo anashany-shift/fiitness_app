@@ -28,7 +28,6 @@ class BlurredBackground extends StatelessWidget {
           fit: BoxFit.cover,
         ),
 
-        // 🌫️ Blur layer
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blurX, sigmaY: blurY),
           child: Container(

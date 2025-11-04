@@ -30,6 +30,7 @@ class _LoginFormState extends State<LoginForm> {
       padding: EdgeInsetsGeometry.symmetric(vertical: 24.sp, horizontal: 32.sp),
       width: double.infinity,
       child: SingleChildScrollView(
+        
         child: Form(
           key: key,
           child: Column(
@@ -41,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
                   hint: "Email",
                   validator: Validation.validateEmail,
                   preSuffix: Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(12),
                     child: SvgPicture.asset(
                       AppAssets.emailIcon,
                       height: 16.h,
@@ -57,17 +58,9 @@ class _LoginFormState extends State<LoginForm> {
                   hint: "Password",
                   obscureText: true,
                   validator: Validation.validatePassword,
-                  suffixIcon: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: SvgPicture.asset(
-                      AppAssets.eyeIcon,
-                      height: 16.h,
-                      width: 16.w,
-                      //    fit: BoxFit.scaleDown,
-                    ),
-                  ),
+                  suffixIcon: Icon(Icons.visibility_outlined, size: 26),
                   preSuffix: Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(12),
                     child: SvgPicture.asset(
                       AppAssets.passwordIcon,
                       height: 16.h,

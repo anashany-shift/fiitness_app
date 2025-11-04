@@ -37,6 +37,7 @@ abstract class AppTheme {
 
     inputDecorationTheme: InputDecorationTheme(
       contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 16),
+      suffixIconColor: AppColors.lgihtGray,
   
 
       filled: false,
