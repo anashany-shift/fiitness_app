@@ -1,0 +1,20 @@
+import 'package:dio/dio.dart';
+import 'package:fitness_app/api/models/requests/auth/login_request.dart';
+import 'package:fitness_app/api/models/responses/auth/login_response.dart';
+
+import 'package:injectable/injectable.dart';
+import 'package:retrofit/retrofit.dart';
+
+import '../../../../../core/constants/api_constant.dart';
+
+part 'auth_api_client.g.dart';
+
+@injectable
+@RestApi()
+abstract class AuthApiClient {
+  @factoryMethod
+  factory AuthApiClient(Dio dio) = _AuthApiClient;
+
+  @POST(ApiConstant.loginEndPoint)
+  Future<LoginResponse> login(@Body() LoginRequest loginRequest);
+}

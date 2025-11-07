@@ -132,7 +132,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               buttonModel: ButtonModel(
                 text: "Do It",
                 onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(context,Routes.login, (route) => false,);
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    Routes.login,
+                    (route) => false,
+                  );
                 },
                 width: 80,
               ),
@@ -149,9 +153,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
     return BlurredBackground(
       imagePath: AppAssets.bgOnBoradnig,
       child: Stack(
-      
         children: [
-         
           PageView.builder(
             physics: NeverScrollableScrollPhysics(),
             controller: _pageController,
@@ -165,34 +167,42 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               );
             },
           ),
-           Visibility(
-      visible: _currentPageIndex == 0 || _currentPageIndex == 1,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 18.0, top: 40),
-        child: Align(
-          alignment: Alignment.topRight,
-          child: GestureDetector(
-            onTap: () {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                Routes.login,
-                (route) => false,
-              );
-            },
-            child:  Text('Skip',style: AppTextStyle.regular14,), // simple unstyled text
+          Visibility(
+            visible: _currentPageIndex == 0 || _currentPageIndex == 1,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 18.0, top: 40),
+              child: Align(
+                alignment: Alignment.topRight,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      Routes.login,
+                      (route) => false,
+                    );
+                  },
+                  child: Text(
+                    'Skip',
+                    style: AppTextStyle.regular14,
+                  ), // simple unstyled text
+                ),
+              ),
+            ),
           ),
-        ),
-      ),
-    ),
           Align(
             alignment: Alignment.bottomCenter,
             child: BlurredContainer(
               bottomBorderRadius: 0,
-              padding: const EdgeInsets.only(top: 31.5, right: 16, left: 16,bottom: 31.5),
+              padding: const EdgeInsets.only(
+                top: 31.5,
+                right: 16,
+                left: 16,
+                bottom: 31.5,
+              ),
               width: double.infinity,
-              
+
               child: Column(
-                 mainAxisSize: MainAxisSize.min,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   AnimatedSwitcher(
                     duration: const Duration(milliseconds: 300),
@@ -227,7 +237,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                   SizedBox(height: 24.h),
+                  SizedBox(height: 24.h),
                   DotsIndicator(
                     dotsCount: pages.length,
                     position: _currentPageIndex.toDouble(),
@@ -244,7 +254,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                       ),
                     ),
                   ),
-                   SizedBox(height: 24.h),
+                  SizedBox(height: 24.h),
                   _buildButtons(_currentPageIndex),
                 ],
               ),

@@ -14,7 +14,7 @@ class TextFormFieldModel {
   final bool readOnly;
 
   TextFormFieldModel({
-    this.preSuffix, 
+    this.preSuffix,
     this.suffixIcon,
     this.suffix,
     this.controller,
@@ -24,6 +24,6 @@ class TextFormFieldModel {
     this.validator,
     this.onChanged,
     this.obscureText = false,
-    this.readOnly=false
+    this.readOnly = false,
   });
 }

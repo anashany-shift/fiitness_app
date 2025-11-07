@@ -7,12 +7,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-           resizeToAvoidBottomInset: true,
-         
-       body:  LoginViewBody()
-        ),
+      child: Scaffold ( body: LoginViewBody()),
     );
   }
 }
-

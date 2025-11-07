@@ -35,7 +35,10 @@ abstract class Validation {
     return null;
   }
 
-  static String? validateConfirmedPassword(String? value,TextEditingController passwordController) {
+  static String? validateConfirmedPassword(
+    String? value,
+    TextEditingController passwordController,
+  ) {
     if (value == null || value.isEmpty) {
       return 'Password is required';
     }
@@ -43,7 +46,6 @@ abstract class Validation {
       return 'Passwords do not match';
     }
     return null;
-
   }
 
   static String? validatePin(String? value) {

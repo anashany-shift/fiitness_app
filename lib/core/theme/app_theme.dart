@@ -1,17 +1,14 @@
-
 import 'package:fitness_app/core/constants/const_keys.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
-
 abstract class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: AppColors.backGroundL[10],
-    fontFamily:"BalooThambi2",
+    fontFamily: "BalooThambi2",
     colorScheme: ColorScheme(
       brightness: Brightness.light,
       primary: AppColors.mainColorL,
@@ -23,7 +20,7 @@ abstract class AppTheme {
       surface: AppColors.white,
       onSurface: AppColors.mainColorL,
     ),
-    
+
     // appBarTheme: AppBarTheme(
     //   backgroundColor:Colors.transparent,
     //   surfaceTintColor: Colors.transparent,
@@ -34,18 +31,14 @@ abstract class AppTheme {
     //   ),
     //   iconTheme: IconThemeData(color: AppColors.black),
     // ),
-
     inputDecorationTheme: InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 16),
+      contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       suffixIconColor: AppColors.lgihtGray,
-  
 
       filled: false,
-    
-      hintStyle:AppTextStyle.regular12.copyWith(color: AppColors.lgihtGray),
+
+      hintStyle: AppTextStyle.regular12.copyWith(color: AppColors.lgihtGray),
       labelStyle: AppTextStyle.regular12.copyWith(color: AppColors.lgihtGray),
-    
-  
 
       floatingLabelStyle: WidgetStateTextStyle.resolveWith((states) {
         if (states.contains(WidgetState.error)) {
@@ -58,9 +51,8 @@ abstract class AppTheme {
       focusedBorder: getOutlineInputBorder(color: AppColors.lgihtGray),
       enabledBorder: getOutlineInputBorder(color: AppColors.lgihtGray),
       errorBorder: getOutlineInputBorder(color: AppColors.red),
-    
     ),
-    
+
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedIconTheme: IconThemeData(
         color: AppColors.red,
@@ -75,16 +67,18 @@ abstract class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-          padding:EdgeInsetsGeometry.symmetric(vertical: 9,horizontal:16 ),
+        padding: EdgeInsetsGeometry.symmetric(vertical: 9, horizontal: 16),
         backgroundColor: AppColors.mainColorL,
-       // disabledBackgroundColor: AppColors.black[30],
+        // disabledBackgroundColor: AppColors.black[30],
         foregroundColor: AppColors.white,
-        textStyle: getTextStyle(fontSize: 14.sp, fontWeight: FontWeight.w800,color: AppColors.white),
+        textStyle: getTextStyle(
+          fontSize: 14.sp,
+          fontWeight: FontWeight.w800,
+          color: AppColors.white,
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide.none
-        
-      
+          side: BorderSide.none,
         ),
       ),
     ),

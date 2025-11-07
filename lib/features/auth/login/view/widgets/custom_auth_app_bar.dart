@@ -1,4 +1,3 @@
-
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

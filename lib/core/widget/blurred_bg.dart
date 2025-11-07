@@ -20,19 +20,13 @@ class BlurredBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-    
       fit: StackFit.expand,
       children: [
-        Image.asset(
-          imagePath,
-          fit: BoxFit.cover,
-        ),
+        Image.asset(imagePath, fit: BoxFit.cover),
 
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blurX, sigmaY: blurY),
-          child: Container(
-            color: Colors.black.withOpacity(overlayOpacity),
-          ),
+          child: Container(color: Colors.black.withOpacity(overlayOpacity)),
         ),
 
         if (child != null) child!,
