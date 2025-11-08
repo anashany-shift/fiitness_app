@@ -1,5 +1,3 @@
-
-
 class OnBoardingPageModel {
   final String imagePath;
   final String title;

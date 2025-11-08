@@ -5,6 +5,7 @@ class BlurredContainer extends StatelessWidget {
   final double width;
   final double? height;
   final double borderRadius;
+  final double bottomBorderRadius;
   final EdgeInsetsGeometry padding;
   final double blur;
   final double opacity;
@@ -15,9 +16,15 @@ class BlurredContainer extends StatelessWidget {
   const BlurredContainer({
     super.key,
     required this.width,
-     this.height,
+    this.height,
     this.borderRadius = 50,
-    this.padding = const EdgeInsets.only(top: 24, right: 16, left: 16, bottom: 24),
+    this.bottomBorderRadius = 50,
+    this.padding = const EdgeInsets.only(
+      top: 24,
+      right: 16,
+      left: 16,
+      bottom: 24,
+    ),
     this.blur = 34.6,
     this.opacity = 0.1,
     this.color = const Color(0xFF242424),
@@ -31,24 +38,24 @@ class BlurredContainer extends StatelessWidget {
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(borderRadius),
         topRight: Radius.circular(borderRadius),
+        bottomLeft: Radius.circular(bottomBorderRadius),
+        bottomRight: Radius.circular(bottomBorderRadius),
       ),
-       clipBehavior: Clip.hardEdge,
+      clipBehavior: Clip.hardEdge,
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
         child: Container(
           width: width,
           height: height,
-          padding: padding,
+
           decoration: BoxDecoration(
             color: color.withOpacity(opacity),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(borderRadius),
               topRight: Radius.circular(borderRadius),
             ),
-           
-         
           ),
-          child: child,
+          child: Padding(padding: padding, child: child),
         ),
       ),
     );

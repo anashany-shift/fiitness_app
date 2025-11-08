@@ -22,17 +22,11 @@ class BlurredBackground extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        Image.asset(
-          imagePath,
-          fit: BoxFit.cover,
-        ),
+        Image.asset(imagePath, fit: BoxFit.cover),
 
-        // 🌫️ Blur layer
         BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blurX, sigmaY: blurY),
-          child: Container(
-            color: Colors.black.withOpacity(overlayOpacity),
-          ),
+          child: Container(color: Colors.black.withOpacity(overlayOpacity)),
         ),
 
         if (child != null) child!,

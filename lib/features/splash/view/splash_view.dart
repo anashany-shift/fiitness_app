@@ -31,10 +31,7 @@ class _SplashViewState extends State<SplashView> {
       body: Center(
         child: ZoomIn(
           duration: const Duration(seconds: 2),
-          child: Image.asset(
-            AppAssets.logo,
-          
-          ),
+          child: Image.asset(AppAssets.logo),
         ),
       ),
     );

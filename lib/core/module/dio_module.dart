@@ -9,14 +9,12 @@ import '../helper/token_storage.dart';
 abstract class DioModule {
   @singleton
   Dio get dio {
-    final dio = Dio(
-      BaseOptions(baseUrl: ApiConstant.baseUrl),
-    );
+    final dio = Dio(BaseOptions(baseUrl: ApiConstant.baseUrl));
 
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-           final token = await TokenStorage.getToken();
+          final token = await TokenStorage.getToken();
 
           if (token != null && token.isNotEmpty) {
             options.headers['token'] = token;
@@ -24,10 +22,10 @@ abstract class DioModule {
 
           return handler.next(options);
         },
-    
       ),
     );
-     dio.interceptors.add(PrettyDioLogger(
+    dio.interceptors.add(
+      PrettyDioLogger(
         requestHeader: true,
         requestBody: true,
         responseBody: true,
@@ -35,16 +33,16 @@ abstract class DioModule {
         error: true,
         compact: true,
         maxWidth: 90,
-        
-        filter: (options, args){
-            // don't print requests with uris containing '/posts' 
-            if(options.path.contains('/posts')){
-              return false;
-            }
-            // don't print responses with unit8 list data
-            return !args.isResponse || !args.hasUint8ListData;
+
+        filter: (options, args) {
+          // don't print requests with uris containing '/posts'
+          if (options.path.contains('/posts')) {
+            return false;
           }
-      )
+          // don't print responses with unit8 list data
+          return !args.isResponse || !args.hasUint8ListData;
+        },
+      ),
     );
     return dio;
   }
