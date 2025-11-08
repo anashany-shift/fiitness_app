@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/features/auth/login/view/login_view.dart';
 import 'package:fitness_app/features/auth/login/view_model/cubit/login_cubit.dart';
+import 'package:fitness_app/features/auth/sign_up/view/sign_up_view.dart';
 import 'package:fitness_app/features/on_boarding/view/on_boarding_view.dart';
 import 'package:fitness_app/features/splash/view/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,8 @@ abstract class AppRoutes {
         return MaterialPageRoute(builder: (_) => BlocProvider(
           create: (context) => getIt.get<LoginCubit>(),
           child: const LoginView()));
+            case Routes.signUp:
+        return MaterialPageRoute(builder: (_) => const SignUpView());
 
       default:
         return MaterialPageRoute(

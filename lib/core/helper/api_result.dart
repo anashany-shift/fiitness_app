@@ -1,23 +1,6 @@
-// import 'package:dio/dio.dart';
+import 'package:dio/dio.dart';
+import 'package:fitness_app/core/error/error_handler.dart';
 
-// sealed class ApiResult<T> {}
-
-// class ApiSuccessResult<T> extends ApiResult<T> {
-//   final T data;
-//   ApiSuccessResult(this.data);
-// }
-
-// class ApiErrorResult<T> extends ApiResult<T> {
-
-//     Object error;
-//   late String errorMessage;
-//   ApiErrorResult(this.error) {
-//     if (error is DioException) {
-//       errorMessage = handleDioError(error as DioException);
-//     } else {
-//       errorMessage = error.toString();
-//     }
-// }}
 sealed class ApiResult<T> {}
 
 class ApiSuccessResult<T> extends ApiResult<T> {
@@ -26,6 +9,24 @@ class ApiSuccessResult<T> extends ApiResult<T> {
 }
 
 class ApiErrorResult<T> extends ApiResult<T> {
-  String errorMessage;
-  ApiErrorResult(this.errorMessage);
-}
+
+    Object error;
+  late String errorMessage;
+  ApiErrorResult(this.error) {
+    if (error is DioException) {
+      errorMessage = handleDioError(error as DioException);
+    } else {
+      errorMessage = error.toString();
+    }
+}}
+// sealed class ApiResult<T> {}
+
+// class ApiSuccessResult<T> extends ApiResult<T> {
+//   final T data;
+//   ApiSuccessResult(this.data);
+// }
+
+// class ApiErrorResult<T> extends ApiResult<T> {
+//   String errorMessage;
+//   ApiErrorResult(this.errorMessage);
+// }

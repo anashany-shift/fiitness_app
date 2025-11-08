@@ -46,7 +46,7 @@ class LoginViewBody extends StatelessWidget {
             builder: (context) {
               return CustomDialog(
                 message: state.errorMessage ?? "",
-                showTwoButtons: true,
+                showTwoButtons: false,
               );
             },
           );

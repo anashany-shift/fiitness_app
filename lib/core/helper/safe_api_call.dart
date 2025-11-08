@@ -9,6 +9,6 @@ Future<ApiResult<TOut>> safeApiCall<TIn, TOut>(
     final result = await apiCall();
     return ApiSuccessResult(transform(result));
   } catch (e) {
-    return ApiErrorResult(e.toString());
+    return ApiErrorResult(e);
   }
 }
