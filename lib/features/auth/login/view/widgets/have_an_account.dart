@@ -26,7 +26,8 @@ class HaveAnAccount extends StatelessWidget {
             TextSpan(
               text: text2,
               style: AppTextStyle.regular14.copyWith(
-                color: AppColors.mainColorL,
+                color: AppColors.mainColorL,decoration: TextDecoration.underline
+
               ),
               recognizer: TapGestureRecognizer()..onTap = onTap,
             ),

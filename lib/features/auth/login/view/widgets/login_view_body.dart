@@ -59,7 +59,7 @@ class LoginViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAuthAppBar(onBackTap: () {}),
+              CustomAuthAppBar(),
               SizedBox(height: 78.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0.sp),

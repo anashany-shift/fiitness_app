@@ -18,10 +18,13 @@ class CustomAuthAppBar extends StatelessWidget {
             child: Image.asset(AppAssets.logo, height: 48.h, width: 70.w),
           ),
           onBackTap != null
-              ? Align(
-                  alignment: Alignment.centerLeft,
-                  child: SvgPicture.asset(AppAssets.backIcon),
-                )
+              ? GestureDetector(
+                onTap: onBackTap,
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: SvgPicture.asset(AppAssets.backIcon),
+                  ),
+              )
               : SizedBox.shrink(),
         ],
       ),
