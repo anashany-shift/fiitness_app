@@ -1,4 +1,3 @@
-import 'package:fitness_app/core/routes/routes.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:flutter/gestures.dart';

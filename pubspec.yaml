@@ -58,6 +58,7 @@ dependencies:
   bloc_test: ^10.0.0
   animate_do: ^4.2.0
   dots_indicator: ^4.0.1
+  numberpicker: ^2.1.2
 
 dev_dependencies: 
   injectable_generator: ^2.6.1

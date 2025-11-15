@@ -14,4 +14,7 @@ abstract class AppAssets {
   static const String appleIcon = "assets/icons/Apple.svg";
   static const String eyeIcon = "assets/icons/eye.svg";
   static const String nameIcon = "assets/icons/name.svg";
+  static const String male = "assets/icons/male.png";
+  static const String female = "assets/icons/female.png";
+  static const String arrow = "assets/icons/arrow.svg";
 }

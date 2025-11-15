@@ -10,7 +10,7 @@ class CustomAuthAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 16.sp, left: 16.sp, top: 46.sp),
+      padding: EdgeInsets.only(right: 16.sp, left: 16.sp, top: 30.sp),
       child: Stack(
         alignment: Alignment.center,
         children: [
