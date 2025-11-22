@@ -36,6 +36,7 @@ class LoginForm extends StatelessWidget {
               CustomTextFormField(
                 textFormFieldModel: TextFormFieldModel(
                   controller: cubit.emailController,
+                 
                   hint: "Email",
                   validator: Validation.validateEmail,
                   preSuffix: Padding(

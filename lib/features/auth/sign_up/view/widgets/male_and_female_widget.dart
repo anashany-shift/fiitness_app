@@ -1,7 +1,9 @@
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
+import 'package:fitness_app/features/auth/sign_up/view_model/cubit/signup_cubit.dart' show SignupCubit;
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MaleAndFemaleWidget extends StatefulWidget {
@@ -13,17 +15,33 @@ class MaleAndFemaleWidget extends StatefulWidget {
 
 class _MaleAndFemaleWidgetState extends State<MaleAndFemaleWidget> {
   String? selectedGender; 
+  @override
+  void initState() {
+
+    final genderCubit=context.read<SignupCubit>().gender;
+    if(genderCubit!=null){
+      selectedGender=genderCubit;
+    }else{
+      context.read<SignupCubit>().setGender(selectedGender??"");
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+        var cubit =context.read<SignupCubit>();
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
           onTap: () {
             setState(() {
-              selectedGender = "male";
+             
+             selectedGender="male";
+           
             });
+              cubit.gender=selectedGender;
           },
           child: GenderCircle(
             icon: AppAssets.male,
@@ -39,6 +57,7 @@ class _MaleAndFemaleWidgetState extends State<MaleAndFemaleWidget> {
             setState(() {
               selectedGender = "female";
             });
+             cubit.gender=selectedGender;
           },
           child: GenderCircle(
             icon: AppAssets.female,

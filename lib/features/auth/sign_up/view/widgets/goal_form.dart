@@ -1,15 +1,14 @@
-import 'dart:ui';
-
-import 'package:dartz/dartz.dart' hide State;
 import 'package:fitness_app/core/models/button_model.dart';
-import 'package:fitness_app/core/utils/app_colors.dart';
-import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:fitness_app/core/widget/blurred_container.dart';
 import 'package:fitness_app/core/widget/custom_button.dart';
 import 'package:fitness_app/features/auth/sign_up/view/widgets/custom_span_text.dart';
 import 'package:fitness_app/features/auth/sign_up/view/widgets/cutsom_radio.dart';
+import 'package:fitness_app/features/auth/sign_up/view_model/cubit/signup_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+
 
 class GoalForm extends StatefulWidget {
   const GoalForm({super.key, required this.onPressed});
@@ -20,7 +19,24 @@ class GoalForm extends StatefulWidget {
 }
 
 class _GoalFormState extends State<GoalForm> {
-  String selectedGoal = '';
+  String selectedGoal = "";
+
+  @override
+  void initState() {
+    super.initState();
+
+    selectedGoal = context.read<SignupCubit>().goal ?? "";
+  }
+
+  void _onGoalChanged(String? newValue) {
+    if (newValue != null) {
+      setState(() {
+        selectedGoal = newValue; // Update UI (Radio button fills)
+      });
+      context.read<SignupCubit>().setGoal(newValue); // Update Data
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,41 +51,55 @@ class _GoalFormState extends State<GoalForm> {
           width: double.infinity,
           child: Column(
             children: [
+              // --- Option 1 ---
               CustomRadio(
                 title: "Gain Weight",
                 value: "gain",
-                groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                groupValue: selectedGoal, // Use local variable
+                onChanged: _onGoalChanged, // Use helper function
               ),
-                 CustomRadio(
-                title: "lose weight",
+              // --- Option 2 ---
+              CustomRadio(
+                title: "Lose weight",
                 value: "lose weight",
                 groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                onChanged: _onGoalChanged,
               ),
-                 CustomRadio(
+              // --- Option 3 ---
+              CustomRadio(
                 title: "Get fitter",
                 value: "Get fitter",
                 groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                onChanged: _onGoalChanged,
               ),
-                 CustomRadio(
-                title: "Gain more flexible",
+              // --- Option 4 ---
+              CustomRadio(
+                title: "Gain more flexibility",
                 value: "Gain more flexible",
                 groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                onChanged: _onGoalChanged,
               ),
-                 CustomRadio(
-                title: "Learn the basic",
+              // --- Option 5 ---
+              CustomRadio(
+                title: "Learn the basics",
                 value: "Learn the basic",
                 groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                onChanged: _onGoalChanged,
               ),
-              
 
               SizedBox(height: 16.h),
+              
+              // --- Next Button ---
               CustomButton(
-                buttonModel: ButtonModel(text: "Next", onPressed:widget.onPressed ),
+                buttonModel: ButtonModel(
+                  text: "Next",
+                  onPressed: () {
+                     // Optional: Check if empty before proceeding
+                     if(selectedGoal.isNotEmpty) {
+                        widget.onPressed();
+                     }
+                  },
+                ),
               ),
             ],
           ),

@@ -12,7 +12,6 @@ class TextFormFieldModel {
   final double? border;
   final TextEditingController? controller;
   final bool readOnly;
-
   TextFormFieldModel({
     this.preSuffix,
     this.suffixIcon,

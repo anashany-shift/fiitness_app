@@ -42,6 +42,9 @@ class $AssetsIconsGen {
   AssetGenImage get securityWarning =>
       const AssetGenImage('assets/icons/SecurityWarning.png');
 
+  /// File path: assets/icons/arrow.svg
+  String get arrow => 'assets/icons/arrow.svg';
+
   /// File path: assets/icons/arrow_down.png
   AssetGenImage get arrowDown =>
       const AssetGenImage('assets/icons/arrow_down.png');
@@ -100,6 +103,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/male.svg
   String get maleSvg => 'assets/icons/male.svg';
 
+  /// File path: assets/icons/name.svg
+  String get name => 'assets/icons/name.svg';
+
   /// File path: assets/icons/password.svg
   String get password => 'assets/icons/password.svg';
 
@@ -108,36 +114,38 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
-    a100,
-    a20,
-    a40,
-    a60,
-    a80,
-    apple,
-    language,
-    lockSetting,
-    securityWarning,
-    arrowDown,
-    change,
-    chatAi,
-    chatImage,
-    clickedFemale,
-    clickedMale,
-    email,
-    eye,
-    facebook,
-    female,
-    google,
-    gym,
-    help,
-    home,
-    logo,
-    logout,
-    malePng,
-    maleSvg,
-    password,
-    profile,
-  ];
+        a100,
+        a20,
+        a40,
+        a60,
+        a80,
+        apple,
+        language,
+        lockSetting,
+        securityWarning,
+        arrow,
+        arrowDown,
+        change,
+        chatAi,
+        chatImage,
+        clickedFemale,
+        clickedMale,
+        email,
+        eye,
+        facebook,
+        female,
+        google,
+        gym,
+        help,
+        home,
+        logo,
+        logout,
+        malePng,
+        maleSvg,
+        name,
+        password,
+        profile
+      ];
 }
 
 class $AssetsImagesGen {
@@ -198,21 +206,21 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<dynamic> get values => [
-    backIcon,
-    appLogo,
-    authBg,
-    bgOnBoarding,
-    defualtImage,
-    fitnessImage,
-    gymImaage,
-    onboarding1,
-    onboarding2,
-    onboarding3,
-    ropot,
-    trainerImage,
-    userPhoto,
-    yogaImage,
-  ];
+        backIcon,
+        appLogo,
+        authBg,
+        bgOnBoarding,
+        defualtImage,
+        fitnessImage,
+        gymImaage,
+        onboarding1,
+        onboarding2,
+        onboarding3,
+        ropot,
+        trainerImage,
+        userPhoto,
+        yogaImage
+      ];
 }
 
 class Assets {
@@ -223,7 +231,11 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
 
@@ -283,8 +295,15 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({AssetBundle? bundle, String? package}) {
-    return AssetImage(_assetName, bundle: bundle, package: package);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
   }
 
   String get path => _assetName;

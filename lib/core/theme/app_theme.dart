@@ -46,7 +46,7 @@ abstract class AppTheme {
         }
         return getTextStyle(color: AppColors.lgihtGray);
       }),
-      errorStyle: getTextStyle(color: AppColors.red),
+      //errorStyle: getTextStyle(color: AppColors.red),
       border: getOutlineInputBorder(color: AppColors.lgihtGray),
       focusedBorder: getOutlineInputBorder(color: AppColors.lgihtGray),
       enabledBorder: getOutlineInputBorder(color: AppColors.lgihtGray),
@@ -67,7 +67,7 @@ abstract class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        padding: EdgeInsetsGeometry.symmetric(vertical: 9, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: 9, horizontal: 16),
         backgroundColor: AppColors.mainColorL,
         // disabledBackgroundColor: AppColors.black[30],
         foregroundColor: AppColors.white,

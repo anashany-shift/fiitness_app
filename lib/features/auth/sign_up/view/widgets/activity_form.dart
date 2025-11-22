@@ -2,9 +2,11 @@ import 'package:fitness_app/core/models/button_model.dart';
 import 'package:fitness_app/core/widget/blurred_container.dart';
 import 'package:fitness_app/features/auth/sign_up/view/widgets/custom_span_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widget/custom_button.dart';
+import '../../view_model/cubit/signup_cubit.dart';
 import 'cutsom_radio.dart';
 
 class AcivityForm extends StatefulWidget {
@@ -16,9 +18,27 @@ class AcivityForm extends StatefulWidget {
 }
 
 class _AcivityFormState extends State<AcivityForm> {
-  String selectedGoal='';
+   String selectedActivity = "";
+
+  @override
+  void initState() {
+    super.initState();
+
+    selectedActivity = context.read<SignupCubit>().activityLevel ?? "";
+  }
+
+  void _onActivityChanged(String? newValue) {
+    if (newValue != null) {
+      setState(() {
+        selectedActivity = newValue; // Update UI (Radio button fills)
+      });
+      context.read<SignupCubit>().setActivityLevel(newValue); // Update Data
+    }
+  }
   @override
   Widget build(BuildContext context) {
+        var cubit =context.read<SignupCubit>();
+
     return   Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,38 +54,42 @@ class _AcivityFormState extends State<AcivityForm> {
               CustomRadio(
                 title: "Rookie",
                 value: "level1",
-                groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                groupValue: selectedActivity,
+                onChanged: _onActivityChanged ,
               ),
                  CustomRadio(
                 title: "Beginner",
                 value: "level2",
-                groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                     groupValue: selectedActivity,
+                onChanged: _onActivityChanged ,
               ),
                  CustomRadio(
                 title: "Intermediate",
                 value: "level3",
-                groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                   groupValue: selectedActivity,
+                onChanged: _onActivityChanged ,
               ),
                  CustomRadio(
                 title: "Advance",
                 value: "level4",
-                groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                   groupValue: selectedActivity,
+                onChanged: _onActivityChanged ,
               ),
                  CustomRadio(
                 title: "True Beast",
                 value: "level5",
-                groupValue: selectedGoal,
-                onChanged: (v) => setState(() => selectedGoal = v!),
+                     groupValue: selectedActivity,
+                onChanged: _onActivityChanged ,
               ),
               
 
               SizedBox(height: 16.h),
               CustomButton(
-                buttonModel: ButtonModel(text: "Next", onPressed:widget.onPressed ),
+                buttonModel: ButtonModel(text: "Next", onPressed:() {
+                  if(selectedActivity.isNotEmpty) {
+                        widget.onPressed();
+                     }
+                },),
               ),
             ],
           ),

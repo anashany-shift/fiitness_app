@@ -1,6 +1,8 @@
 import 'package:fitness_app/core/widget/custom_picker_number.dart';
 import 'package:fitness_app/features/auth/sign_up/view/widgets/custom_span_text.dart';
+import 'package:fitness_app/features/auth/sign_up/view_model/cubit/signup_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HeightForm extends StatefulWidget {
@@ -12,10 +14,24 @@ class HeightForm extends StatefulWidget {
 }
 
 class _HeightFormState extends State<HeightForm> {
-  int _currentIntValue = 165;
+  int currentIntValue = 165;
+  @override
+  void initState() {
+    super.initState();
+    final cubitHeight= context.read<SignupCubit>().height;
+    
+    if (cubitHeight != null) {
+      currentIntValue = cubitHeight;
+    } else {
+      // If first time, set the default 30 into the cubit immediately
+      context.read<SignupCubit>().setAge(currentIntValue);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+        var cubit =context.read<SignupCubit>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
 
@@ -26,16 +42,22 @@ class _HeightFormState extends State<HeightForm> {
         ),
         SizedBox(height: 16.h),
         CustomNumberPicker(
-          initialValue: _currentIntValue,
+          initialValue: currentIntValue,
           minValue: 140,
           maxValue: 220,
           title: "Cm",
           fontSize: 40,
           titleButton: "Next",
-          onPressed: widget.onPressed,
-          onChanged: (value) => setState(() {
-            _currentIntValue = value;
-          }),
+          onPressed:(){
+            cubit.setHeight(currentIntValue);
+            widget.onPressed();
+          },
+          onChanged: (value){
+            setState(() {
+              currentIntValue = value; // Updates the UI
+            });
+            cubit.setHeight(value);
+          }
         ),
       ],
     );

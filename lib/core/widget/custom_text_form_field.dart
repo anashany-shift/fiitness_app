@@ -10,6 +10,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       readOnly: textFormFieldModel.readOnly,
       controller: textFormFieldModel.controller,
+      
 
       autovalidateMode: AutovalidateMode.onUserInteraction,
       onChanged: textFormFieldModel.onChanged,

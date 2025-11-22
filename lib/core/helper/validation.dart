@@ -9,11 +9,12 @@ abstract class Validation {
   }
 
   static String? validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
+    final cleaned=value?.replaceAll(" ", "");
+    if (cleaned == null || cleaned.isEmpty) {
       return 'Please enter your email';
     }
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-    if (!emailRegex.hasMatch(value)) {
+    if (!emailRegex.hasMatch(cleaned)) {
       return 'Enter a valid email';
     }
     return null;

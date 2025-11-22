@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_app/api/models/requests/auth/login_request.dart';
+import 'package:fitness_app/api/models/requests/auth/signup_request.dart';
 import 'package:fitness_app/api/models/responses/auth/login_response.dart';
+import 'package:fitness_app/api/models/responses/auth/signup_response.dart';
 
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -17,4 +19,7 @@ abstract class AuthApiClient {
 
   @POST(ApiConstant.loginEndPoint)
   Future<LoginResponse> login(@Body() LoginRequest loginRequest);
+  
+  @POST(ApiConstant.signUpEndPoint)
+  Future<SignupResponse> signUp(@Body() SignUpRequest signupRequest);
 }

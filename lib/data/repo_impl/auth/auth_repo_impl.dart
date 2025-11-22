@@ -1,11 +1,14 @@
-import 'package:fitness_app/api/mapper/login_response_mapper.dart';
+import 'package:fitness_app/api/mapper/auth_response_mapper.dart';
 import 'package:fitness_app/api/models/requests/auth/login_request.dart';
+import 'package:fitness_app/api/models/requests/auth/signup_request.dart';
 import 'package:fitness_app/api/models/responses/auth/login_response.dart';
+import 'package:fitness_app/api/models/responses/auth/signup_response.dart';
 import 'package:fitness_app/core/helper/api_result.dart';
 import 'package:fitness_app/core/helper/safe_api_call.dart';
 import 'package:fitness_app/core/helper/token_storage.dart';
 import 'package:fitness_app/data/data_source/auth/auth_remote_data_source.dart';
 import 'package:fitness_app/domain/entities/responses/auth_entity/login_entity.dart';
+import 'package:fitness_app/domain/entities/responses/auth_entity/signup_entity_response.dart';
 import 'package:fitness_app/domain/repo/auth/auth_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -30,6 +33,14 @@ class AuthRepoImpl implements AuthRepo {
       TokenStorage.saveToken(response.token);
       return response;
     }, (response) => response.toEntity());
+  }
+
+  @override
+  Future<ApiResult<SignupEntityResponse>> signUp({required SignUpRequest signupRequest}) async{
+    return safeApiCall<SignupResponse,SignupEntityResponse>(() async{
+      final response=await _authRemoteDataSource.signUp(signupRequest: signupRequest);
+      return response;
+    }, (response) => response.toEntity(),);
   }
 }
 
