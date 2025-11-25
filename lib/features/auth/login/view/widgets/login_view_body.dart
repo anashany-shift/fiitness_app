@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/routes/routes.dart' show Routes;
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:fitness_app/core/widget/blurred_bg.dart';
@@ -30,17 +31,15 @@ class LoginViewBody extends StatelessWidget {
           );
         } else if (state.loginEntity != null) {
           Navigator.of(context).pop(); 
-          showTopSnackBar(
-            Overlay.of(context),
-            const CustomSnackBar.success(message: "Login successful!"),
+         
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            Routes.mainLayout,
+
+            (route) => false,
           );
-          // Navigator.pushNamedAndRemoveUntil(
-          //   context,
-          //   Routes.mainLayout,
-          //   (route) => false,
-          // );
         } else if (state.errorMessage != null) {
-          Navigator.of(context).pop(); // Close loading dialog
+          Navigator.of(context).pop(); 
           showDialog(
             context: context,
             builder: (context) {

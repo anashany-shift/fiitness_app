@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/features/auth/sign_up/view/widgets/sign_up_view_body.dart';
 import 'package:fitness_app/features/auth/sign_up/view_model/cubit/signup_cubit.dart';

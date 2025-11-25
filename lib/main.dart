@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
           onGenerateRoute: AppRoutes.generateRoute,
           initialRoute: Routes.splash,
             builder: (context, widget) {
-        // أهم سطر ↓↓
         ScreenUtil.init(context);
 
         return MediaQuery(

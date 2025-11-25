@@ -37,7 +37,7 @@ class _AcivityFormState extends State<AcivityForm> {
   }
   @override
   Widget build(BuildContext context) {
-        var cubit =context.read<SignupCubit>();
+      //  var cubit =context.read<SignupCubit>();
 
     return   Column(
       crossAxisAlignment: CrossAxisAlignment.start,

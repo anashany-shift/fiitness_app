@@ -4,6 +4,17 @@ class TokenStorage {
   static const _storage = FlutterSecureStorage();
   static const _tokenKey = "token";
   static const _rememberKey = "remember";
+  static const _firstLaunchKey = "firstLaunch";
+
+static Future<bool> isFirstLaunch() async {
+  final value = await _storage.read(key: _firstLaunchKey);
+  return value == null; // لو مفيش قيمة → أول مرة
+}
+
+static Future<void> setFirstLaunchDone() async {
+  await _storage.write(key: _firstLaunchKey, value: "done");
+}
+
 
   static Future<void> saveToken(String token) async {
     await _storage.write(key: _tokenKey, value: token);
