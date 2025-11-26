@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -26,32 +27,34 @@ import '../module/dio_module.dart' as _i545;
 import '../service/network_service.dart' as _i724;
 
 extension GetItInjectableX on _i174.GetIt {
-// initializes the registration of main-scope dependencies inside of GetIt
+  // initializes the registration of main-scope dependencies inside of GetIt
   _i174.GetIt init({
     String? environment,
     _i526.EnvironmentFilter? environmentFilter,
   }) {
-    final gh = _i526.GetItHelper(
-      this,
-      environment,
-      environmentFilter,
-    );
+    final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final dioModule = _$DioModule();
     gh.factory<_i724.NetworkService>(() => _i724.NetworkService());
     gh.singleton<_i361.Dio>(() => dioModule.dio);
     gh.factory<_i705.AuthApiClient>(() => _i705.AuthApiClient(gh<_i361.Dio>()));
     gh.factory<_i573.AuthRemoteDataSource>(
-        () => _i153.AuthRemoteDataSourceImpl(gh<_i705.AuthApiClient>()));
+      () => _i153.AuthRemoteDataSourceImpl(gh<_i705.AuthApiClient>()),
+    );
     gh.factory<_i894.AuthRepo>(
-        () => _i947.AuthRepoImpl(gh<_i573.AuthRemoteDataSource>()));
+      () => _i947.AuthRepoImpl(gh<_i573.AuthRemoteDataSource>()),
+    );
     gh.factory<_i40.LoginUseCase>(
-        () => _i40.LoginUseCase(gh<_i894.AuthRepo>()));
+      () => _i40.LoginUseCase(gh<_i894.AuthRepo>()),
+    );
     gh.factory<_i86.SignupUseCase>(
-        () => _i86.SignupUseCase(gh<_i894.AuthRepo>()));
+      () => _i86.SignupUseCase(gh<_i894.AuthRepo>()),
+    );
     gh.factory<_i593.SignupCubit>(
-        () => _i593.SignupCubit(gh<_i86.SignupUseCase>()));
+      () => _i593.SignupCubit(gh<_i86.SignupUseCase>()),
+    );
     gh.factory<_i474.LoginCubit>(
-        () => _i474.LoginCubit(gh<_i40.LoginUseCase>()));
+      () => _i474.LoginCubit(gh<_i40.LoginUseCase>()),
+    );
     return this;
   }
 }
