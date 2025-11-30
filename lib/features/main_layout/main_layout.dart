@@ -37,7 +37,6 @@ class _MainLayoutState extends State<MainLayout> {
         extendBody: true,
         body: NotificationListener<UserScrollNotification>(
           onNotification: (notification) {
-            // نتأكد إن الاتجاه رأسي فقط
             if (notification.metrics.axis == Axis.vertical) {
               if (notification.direction == ScrollDirection.forward) {
                 if (!isBottomNavVisible) {

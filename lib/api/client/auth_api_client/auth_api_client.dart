@@ -11,11 +11,11 @@ import '../../../../../core/constants/api_constant.dart';
 
 part 'auth_api_client.g.dart';
 
-@injectable
+@injectable 
 @RestApi()
 abstract class AuthApiClient {
   @factoryMethod
-  factory AuthApiClient(Dio dio) = _AuthApiClient;
+  factory AuthApiClient(@Named("mainApi") Dio dio) = _AuthApiClient;
 
   @POST(ApiConstant.loginEndPoint)
   Future<LoginResponse> login(@Body() LoginRequest loginRequest);

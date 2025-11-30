@@ -184,6 +184,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/fitness.svg
   String get fitness => 'assets/images/fitness.svg';
 
+  /// File path: assets/images/food.png
+  AssetGenImage get food => const AssetGenImage('assets/images/food.png');
+
   /// File path: assets/images/gumImage.svg
   String get gumImage => 'assets/images/gumImage.svg';
 
@@ -205,8 +208,18 @@ class $AssetsImagesGen {
   /// File path: assets/images/person.png
   AssetGenImage get person => const AssetGenImage('assets/images/person.png');
 
+  /// File path: assets/images/popular.jpg
+  AssetGenImage get popular => const AssetGenImage('assets/images/popular.jpg');
+
+  /// File path: assets/images/recomendedImage.jpg
+  AssetGenImage get recomendedImage =>
+      const AssetGenImage('assets/images/recomendedImage.jpg');
+
   /// File path: assets/images/ropot.png
   AssetGenImage get ropot => const AssetGenImage('assets/images/ropot.png');
+
+  /// File path: assets/images/rrr.jpg
+  AssetGenImage get rrr => const AssetGenImage('assets/images/rrr.jpg');
 
   /// File path: assets/images/trainer.svg
   String get trainer => 'assets/images/trainer.svg';
@@ -227,13 +240,17 @@ class $AssetsImagesGen {
     cat4,
     cat5,
     fitness,
+    food,
     gumImage,
     homeBg,
     onboarding1,
     onboarding2,
     onboarding3,
     person,
+    popular,
+    recomendedImage,
     ropot,
+    rrr,
     trainer,
     yoga,
   ];
