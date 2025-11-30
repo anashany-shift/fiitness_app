@@ -22,4 +22,14 @@ abstract class AppAssets {
   static const String smartCouch = "assets/icons/smart.svg";
   static const String workout = "assets/icons/workout.svg";
   static const String profile= "assets/icons/profile.svg";
+  static const String perosn= "assets/images/person.png";
+  static const String cat1= "assets/images/cat1.png";
+  static const String cat2= "assets/images/cat2.png";
+  static const String cat3= "assets/images/cat3.png";
+  static const String cat4= "assets/images/cat4.png";
+  static const String cat5= "assets/images/cat5.png";
+  static const String recomendedImage= "assets/images/recomendedImage.jpg";
+  static const String rrr= "assets/images/rrr.jpg";
+  static const String food= "assets/images/food.png";
+  static const String popular= "assets/images/popular.jpg";
 }

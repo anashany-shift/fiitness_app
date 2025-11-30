@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.10.1
 
 
 dependencies:
@@ -32,7 +32,7 @@ dependencies:
   dartz: ^0.10.1
   bloc: ^9.0.0
   flutter_bloc:
-  retrofit: ^4.6.0
+  retrofit: ^4.9.0
   logger: ^2.6.0  # for logging purpose
   json_annotation: ^4.9.0
     # add injectable to your dependencies
@@ -62,9 +62,9 @@ dependencies:
 
 dev_dependencies: 
   injectable_generator: ^2.6.1
-  retrofit_generator: ^9.1.2
-  json_serializable: ^6.9.0
-  build_runner: ^2.4.12
+  retrofit_generator: ^10.0.1
+  json_serializable: ^6.10.0
+  build_runner: ^2.6.0
   flutter_gen_runner: ^5.5.0
   
   flutter_test:
