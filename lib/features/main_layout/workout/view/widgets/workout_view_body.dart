@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/routes/routes.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:fitness_app/features/main_layout/explore/view/widget/custom_image_container.dart';
 import 'package:fitness_app/features/main_layout/explore/view/widget/custom_tab_bar.dart';
@@ -127,11 +128,22 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
                       crossAxisSpacing: 18.w,
                     ),
                     itemBuilder: (context, index) {
-                      return CustomImageContainer(
-                        imagePath: upcomingGroups?[index].image ?? "",
-                        title: upcomingGroups?[index].name ?? "",
-                        width: 163,
-                        height: 160,
+                      return GestureDetector(
+                        onTap: () {
+                        Navigator.pushNamed(
+                            context,
+                           Routes.exercise,
+                            arguments: {
+                              'exerciseId': upcomingGroups?[index].id ?? "",
+                            },
+                          );
+                        },
+                        child: CustomImageContainer(
+                          imagePath: upcomingGroups?[index].image ?? "",
+                          title: upcomingGroups?[index].name ?? "",
+                          width: 163,
+                          height: 160,
+                        ),
                       );
                     },
                   );

@@ -7,16 +7,16 @@ class NetworkService {
   final Connectivity _connectivity = Connectivity();
   late final StreamSubscription _subscription;
 
-  void listenConnection(void Function(bool isOnline) onStatusChange) {
-    _subscription = _connectivity.onConnectivityChanged.listen((result) {
-      if (result == ConnectivityResult.mobile ||
-          result == ConnectivityResult.wifi) {
-        onStatusChange(true);
-      } else {
-        onStatusChange(false);
-      }
-    });
-  }
+ void listenConnection(void Function(bool isOnline) onStatusChange) {
+  _subscription = _connectivity.onConnectivityChanged.listen((results) {
+    final isOnline = results.contains(ConnectivityResult.mobile) ||
+        results.contains(ConnectivityResult.wifi) ||
+        results.contains(ConnectivityResult.ethernet);
+
+    onStatusChange(isOnline);
+  });
+}
+
 
   void dispose() {
     _subscription.cancel();

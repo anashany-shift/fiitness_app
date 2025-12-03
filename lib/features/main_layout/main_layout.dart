@@ -8,7 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'profile/view/Profile_view.dart';
+import 'profile/view/profile_view.dart';
 import 'workout/view/workout_view.dart';
 
 class MainLayout extends StatefulWidget {

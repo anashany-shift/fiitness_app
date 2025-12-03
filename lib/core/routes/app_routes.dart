@@ -2,6 +2,7 @@ import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/features/auth/login/view/login_view.dart';
 import 'package:fitness_app/features/auth/login/view_model/cubit/login_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/view/sign_up_view.dart';
+import 'package:fitness_app/features/exercise/view/exercise_view.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit_event.dart';
 import 'package:fitness_app/features/main_layout/main_layout.dart';
@@ -46,12 +47,11 @@ abstract class AppRoutes {
             child: const MainLayout(),
           ),
         );
+      case Routes.exercise:
+        return MaterialPageRoute(builder: (_) => const ExerciseView());
 
       default:
-        return MaterialPageRoute(
-          builder: (_) =>
-              const Scaffold(body: Center(child: Text('Page not found'))),
-        );
+        return MaterialPageRoute(builder: (_) => const LoginView());
     }
   }
 }

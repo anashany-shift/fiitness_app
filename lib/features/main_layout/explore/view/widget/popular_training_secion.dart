@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PopularTrainingSection extends StatelessWidget {
   PopularTrainingSection({super.key});
-  List<String> images = [
+
+
+  final List<String> images = [
     "https://images.pexels.com/photos/4162449/pexels-photo-4162449.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=600",
   ];
