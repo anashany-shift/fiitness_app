@@ -16,4 +16,5 @@ abstract class ApiConstant {
   static const muselsUpcoming = "muscles";
   static const musclesUpcomingByGroupId = "musclesGroup/{groupId}";
   static const getFoodCategories = "categories.php";
+  static const getLoggedUserData = "auth/profile-data";
 }

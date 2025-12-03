@@ -7,7 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UpcomingWorkoutsSection extends StatelessWidget {
-  const UpcomingWorkoutsSection({super.key});
+  const UpcomingWorkoutsSection({super.key, this.onTapBar});
+  final void Function(int index,String groupId)? onTapBar;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class UpcomingWorkoutsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomTabBar(),
+          CustomTabBar(onTapBar: onTapBar,),
           SizedBox(height: 8.h),
           BlocBuilder<ExploreCubit, ExploreState>(
             builder: (context, state) {

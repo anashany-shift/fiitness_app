@@ -8,7 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTabBar extends StatefulWidget {
-  const CustomTabBar({super.key});
+  const CustomTabBar({super.key, this.onTapBar});
+  final void Function(int index,String groupId)? onTapBar;
 
   @override
   State<CustomTabBar> createState() => _CustomTabBarState();
@@ -55,9 +56,13 @@ class _CustomTabBarState extends State<CustomTabBar> {
                         onTap: () {
                           setState(() {
                             selectedIndex = index;
+
                           });
                           final groupId=musclesGroup?[index].id;
                           cubit.doIntent(ExploreMuscleGroupEvent(groupId));
+                          if(widget.onTapBar!=null){
+                            widget.onTapBar!(index,groupId??"");
+                          }
 
                         },
                         child: TabBarItem(

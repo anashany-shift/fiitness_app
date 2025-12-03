@@ -9,3 +9,4 @@ class ExploreMuscleGroupEvent extends ExploreCubitEvent{
   ExploreMuscleGroupEvent(this.groupId);
 }
 class ExploreGetFoodCategories extends ExploreCubitEvent {}
+class GetLoggedUserData extends ExploreCubitEvent {}

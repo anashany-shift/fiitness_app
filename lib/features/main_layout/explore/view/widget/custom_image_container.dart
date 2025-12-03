@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:fitness_app/core/utils/app_assets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +15,9 @@ class CustomImageContainer extends StatelessWidget {
     this.showsRow = false,
     this.task,
     this.level,
+    required this.imagePath,
   });
-  final String title;
+  final String title, imagePath;
   final String? task, level;
   final double width, height;
   final bool showsRow;
@@ -29,7 +30,7 @@ class CustomImageContainer extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         image: DecorationImage(
-          image: AssetImage(AppAssets.popular),
+          image: CachedNetworkImageProvider(imagePath),
           fit: BoxFit.cover,
         ),
       ),
@@ -40,6 +41,7 @@ class CustomImageContainer extends StatelessWidget {
             title,
             style: AppTextStyle.semiBold14,
             textAlign: TextAlign.center,
+            maxLines: 2,
           ),
           // SizedBox(height: 6.h),
           Padding(

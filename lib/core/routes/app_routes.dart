@@ -2,7 +2,11 @@ import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/features/auth/login/view/login_view.dart';
 import 'package:fitness_app/features/auth/login/view_model/cubit/login_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/view/sign_up_view.dart';
+import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit.dart';
+import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit_event.dart';
 import 'package:fitness_app/features/main_layout/main_layout.dart';
+import 'package:fitness_app/features/main_layout/workout/view_model/cubit/workout_cubit.dart';
+import 'package:fitness_app/features/main_layout/workout/view_model/cubit/workout_cubit_event.dart';
 import 'package:fitness_app/features/on_boarding/view/on_boarding_view.dart';
 import 'package:fitness_app/features/splash/view/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -18,14 +22,30 @@ abstract class AppRoutes {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.login:
-        return MaterialPageRoute(builder: (_) => BlocProvider(
-          create: (context) => getIt.get<LoginCubit>(),
-          child: const LoginView()));
-            case Routes.signUp:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt.get<LoginCubit>(),
+            child: const LoginView(),
+          ),
+        );
+      case Routes.signUp:
         return MaterialPageRoute(builder: (_) => const SignUpView());
-         case Routes.mainLayout:
-        return MaterialPageRoute(builder: (_) => const MainLayout());
-
+      case Routes.mainLayout:
+        return MaterialPageRoute(
+          builder: (_) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    getIt.get<ExploreCubit>()..doIntent(ExploreGetAllData()),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    getIt.get<WorkoutCubit>()..doIntent(WorkoutGetAllData()),
+              ),
+            ],
+            child: const MainLayout(),
+          ),
+        );
 
       default:
         return MaterialPageRoute(

@@ -1,10 +1,14 @@
+import 'dart:math';
+
 import 'package:bloc/bloc.dart';
 import 'package:fitness_app/core/helper/api_result.dart';
 import 'package:fitness_app/core/helper/base_state.dart';
+import 'package:fitness_app/domain/entities/responses/auth_entity/user_info_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/food_category_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/muscles_upcoming_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/muscles_upcoming_group_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/random_muscle_entity.dart';
+import 'package:fitness_app/domain/use_cases/auth/get_logged_user_data_use_case.dart';
 import 'package:fitness_app/domain/use_cases/main_layout/explore_use_cases/get_food_category_use_case.dart';
 import 'package:fitness_app/domain/use_cases/main_layout/explore_use_cases/get_muscles_upcoming_by_group_id.dart';
 import 'package:fitness_app/domain/use_cases/main_layout/explore_use_cases/get_muscles_upcoming_use_case.dart';
@@ -13,19 +17,20 @@ import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explor
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_state.dart';
 import 'package:injectable/injectable.dart';
 
-@singleton
 @injectable
 class ExploreCubit extends Cubit<ExploreState> {
   final GetRandomMusclesUseCase _getRandomMusclesUseCase;
   final GetMusclesUpcomingUseCase _getMusclesUpcomingUseCase;
   final GetMusclesUpcomingByGroupId _getMusclesUpcomingByGroupIdUseCases;
   final GetFoodCategoryUseCase _getFoodCategoryUseCase;
+  final GetLoggedUserDataUseCase _getLoggedUserDataUseCase;
 
   ExploreCubit(
     this._getRandomMusclesUseCase,
     this._getMusclesUpcomingUseCase,
     this._getMusclesUpcomingByGroupIdUseCases,
     this._getFoodCategoryUseCase,
+    this._getLoggedUserDataUseCase,
   ) : super(ExploreState());
   void doIntent(ExploreCubitEvent event) {
     switch (event) {
@@ -48,20 +53,28 @@ class ExploreCubit extends Cubit<ExploreState> {
       case ExploreGetFoodCategories():
         _getFoodCategory();
         return;
+      case GetLoggedUserData():
+        _getLoggedUserData();
+        return;
     }
   }
 
   Future<void> _getAllData() async {
-    await _getMusclesUpcoming();
+    emit(state.copyWith(isAllDataLoading: true));
+    await Future.wait([
+      _getLoggedUserData(),
+      _getRandomMuscles(),
+      _getFoodCategory(),
+
+      _getMusclesUpcoming(),
+    ]);
 
     final groupId = state.musclesUpcomingEntity?.data?.first.id;
 
     if (groupId != null && groupId.isNotEmpty) {
       await _getMusclesUpcomingGroup(groupId: groupId);
     }
-
-    _getRandomMuscles();
-    _getFoodCategory();
+    emit(state.copyWith(isAllDataLoading: false));
   }
 
   Future<void> _getRandomMuscles() async {
@@ -143,6 +156,26 @@ class ExploreCubit extends Cubit<ExploreState> {
             foodCategoryEntity: BaseState.error(result.errorMessage),
           ),
         );
+    }
+  }
+
+  Future<void> _getLoggedUserData() async {
+    emit(state.copyWith(loggedUserDataEntity: BaseState.loading()));
+    final result = await _getLoggedUserDataUseCase.call();
+    switch (result) {
+      case ApiSuccessResult<UserInfoEntity>():
+        emit(
+          state.copyWith(loggedUserDataEntity: BaseState.success(result.data)),
+        );
+
+        return;
+      case ApiErrorResult<UserInfoEntity>():
+        emit(
+          state.copyWith(
+            loggedUserDataEntity: BaseState.error(result.errorMessage),
+          ),
+        );
+        return;
     }
   }
 }

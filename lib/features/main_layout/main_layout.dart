@@ -19,16 +19,47 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
+
+
   int currentIndex = 0;
   final PageController _pageController = PageController();
   bool isBottomNavVisible = true;
+  final ValueNotifier<int> workpoutIndexNotifier = ValueNotifier(0);
+  final ValueNotifier<String> workpoutGroupId = ValueNotifier("");
 
-  final List<Widget> pages = [
-    ExploreView(),
-    SmartCouchview(),
-    WorkoutView(),
-    ProfileView(),
-  ];
+
+
+
+
+
+  void onExploreTapBarSelected(int index, String groupId) {
+    setState(() {
+      currentIndex = 2;
+      isBottomNavVisible = true;
+    });
+    workpoutIndexNotifier.value = index;
+    workpoutGroupId.value = groupId;
+    _pageController.jumpToPage(2);
+  }
+
+
+
+
+  late List<Widget> pages;
+
+  @override
+  void initState() {
+    super.initState();
+    pages = [
+      ExploreView(onTapBar: (index, id) => onExploreTapBarSelected(index, id)),
+      SmartCouchview(),
+      WorkoutView(
+        indexNotifier: workpoutIndexNotifier,
+        idNotifier: workpoutGroupId,
+      ),
+      ProfileView(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {

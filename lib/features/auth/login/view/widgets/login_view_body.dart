@@ -9,8 +9,7 @@ import 'package:fitness_app/features/auth/login/view_model/cubit/login_state.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:top_snackbar_flutter/custom_snack_bar.dart';
-import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
 
 import 'custom_auth_app_bar.dart';
 

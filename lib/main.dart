@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Fitness App',
           theme: AppTheme.lightTheme,
-           localizationsDelegates: [
+          localizationsDelegates: [
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
@@ -38,14 +37,6 @@ class MyApp extends StatelessWidget {
           locale: const Locale("en"),
           onGenerateRoute: AppRoutes.generateRoute,
           initialRoute: Routes.splash,
-            builder: (context, widget) {
-        ScreenUtil.init(context);
-
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-          child: widget!,
-        );
-      },
         );
       },
     );

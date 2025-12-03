@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,10 @@ class UpcomingItem extends StatelessWidget {
       width: 80.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(image: NetworkImage(imagePath), fit: BoxFit.cover),
+        image: DecorationImage(
+          image: CachedNetworkImageProvider(imagePath),
+          fit: BoxFit.cover,
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -29,9 +33,9 @@ class UpcomingItem extends StatelessWidget {
               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
-                //height: 22.h,
-               // width: 80.w,
 
+                //height: 22.h,
+                // width: 80.w,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -40,7 +44,13 @@ class UpcomingItem extends StatelessWidget {
                   ),
                   color: Color(0xff242424).withOpacity(0.5),
                 ),
-                child: Center(child: Text(title, style: AppTextStyle.regular12,textAlign: TextAlign.center,)),
+                child: Center(
+                  child: Text(
+                    title,
+                    style: AppTextStyle.regular12,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
             ),
           ),

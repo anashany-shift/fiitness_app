@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PopularTrainingSection extends StatelessWidget {
-  const PopularTrainingSection({super.key});
-
+  PopularTrainingSection({super.key});
+  List<String> images = [
+    "https://images.pexels.com/photos/4162449/pexels-photo-4162449.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/4761352/pexels-photo-4761352.jpeg?auto=compress&cs=tinysrgb&w=600",
+  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,14 +19,14 @@ class PopularTrainingSection extends StatelessWidget {
           Text("Popular Traning", style: AppTextStyle.semiBold16),
           SizedBox(height: 8.h),
           SingleChildScrollView(
-
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: List.generate(10, (index) {
+              children: List.generate(2, (index) {
                 return Padding(
-                  padding:  EdgeInsets.only(right: 16.0.w),
+                  padding: EdgeInsets.only(right: 16.0.w),
                   child: CustomImageContainer(
+                    imagePath: images[index],
                     height: 176,
                     width: 200,
                     showsRow: true,
@@ -40,4 +43,3 @@ class PopularTrainingSection extends StatelessWidget {
     );
   }
 }
-

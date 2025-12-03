@@ -3,17 +3,19 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
+import 'dart:async' as _i6;
 
 import 'package:fitness_app/api/client/auth_api_client/auth_api_client.dart'
-    as _i4;
-import 'package:fitness_app/api/models/requests/auth/login_request.dart' as _i6;
+    as _i5;
+import 'package:fitness_app/api/models/requests/auth/login_request.dart' as _i7;
 import 'package:fitness_app/api/models/requests/auth/signup_request.dart'
-    as _i7;
+    as _i8;
 import 'package:fitness_app/api/models/responses/auth/login_response.dart'
     as _i2;
 import 'package:fitness_app/api/models/responses/auth/signup_response.dart'
     as _i3;
+import 'package:fitness_app/api/models/responses/auth/user_response.dart'
+    as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -29,6 +31,7 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: unnecessary_parenthesis
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
+// ignore_for_file: invalid_use_of_internal_member
 
 class _FakeLoginResponse_0 extends _i1.SmartFake implements _i2.LoginResponse {
   _FakeLoginResponse_0(Object parent, Invocation parentInvocation)
@@ -41,37 +44,55 @@ class _FakeSignupResponse_1 extends _i1.SmartFake
     : super(parent, parentInvocation);
 }
 
+class _FakeUserResponse_2 extends _i1.SmartFake implements _i4.UserResponse {
+  _FakeUserResponse_2(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
+}
+
 /// A class which mocks [AuthApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAuthApiClient extends _i1.Mock implements _i4.AuthApiClient {
+class MockAuthApiClient extends _i1.Mock implements _i5.AuthApiClient {
   MockAuthApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i5.Future<_i2.LoginResponse> login(_i6.LoginRequest? loginRequest) =>
+  _i6.Future<_i2.LoginResponse> login(_i7.LoginRequest? loginRequest) =>
       (super.noSuchMethod(
             Invocation.method(#login, [loginRequest]),
-            returnValue: _i5.Future<_i2.LoginResponse>.value(
+            returnValue: _i6.Future<_i2.LoginResponse>.value(
               _FakeLoginResponse_0(
                 this,
                 Invocation.method(#login, [loginRequest]),
               ),
             ),
           )
-          as _i5.Future<_i2.LoginResponse>);
+          as _i6.Future<_i2.LoginResponse>);
 
   @override
-  _i5.Future<_i3.SignupResponse> signUp(_i7.SignUpRequest? signupRequest) =>
+  _i6.Future<_i3.SignupResponse> signUp(_i8.SignUpRequest? signupRequest) =>
       (super.noSuchMethod(
             Invocation.method(#signUp, [signupRequest]),
-            returnValue: _i5.Future<_i3.SignupResponse>.value(
+            returnValue: _i6.Future<_i3.SignupResponse>.value(
               _FakeSignupResponse_1(
                 this,
                 Invocation.method(#signUp, [signupRequest]),
               ),
             ),
           )
-          as _i5.Future<_i3.SignupResponse>);
+          as _i6.Future<_i3.SignupResponse>);
+
+  @override
+  _i6.Future<_i4.UserResponse> getLoggedUserData() =>
+      (super.noSuchMethod(
+            Invocation.method(#getLoggedUserData, []),
+            returnValue: _i6.Future<_i4.UserResponse>.value(
+              _FakeUserResponse_2(
+                this,
+                Invocation.method(#getLoggedUserData, []),
+              ),
+            ),
+          )
+          as _i6.Future<_i4.UserResponse>);
 }

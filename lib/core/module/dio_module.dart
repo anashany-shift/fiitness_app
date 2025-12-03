@@ -32,7 +32,7 @@ abstract class DioModule {
           final token = await TokenStorage.getToken();
 
           if (token != null && token.isNotEmpty) {
-            options.headers['token'] = token;
+            options.headers['Authorization'] = "Bearer $token";
           }
           return handler.next(options);
         },

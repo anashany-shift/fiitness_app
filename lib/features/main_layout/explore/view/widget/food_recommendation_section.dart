@@ -20,7 +20,7 @@ class FoodRecommendationSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Recommend45 6nvation For you", style: AppTextStyle.semiBold16),
+              Text("Recommendation For you", style: AppTextStyle.semiBold16),
               Text(
                 "See All",
                 style: AppTextStyle.regular14.copyWith(
