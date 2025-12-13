@@ -63,6 +63,7 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         extendBody: true,
@@ -130,6 +131,7 @@ class _MainLayoutState extends State<MainLayout> {
                           isBottomNavVisible = true;
                         });
                         _pageController.jumpToPage(value);
+                        
                       },
                       items: [
                         BottomNavigationBarItem(

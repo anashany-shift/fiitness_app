@@ -14,28 +14,37 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../../api/client/auth_api_client/auth_api_client.dart' as _i705;
+import '../../api/client/execise_api_client.dart' as _i1009;
 import '../../api/client/main_layout_client/explore_api_client.dart' as _i984;
 import '../../api/client/main_layout_client/workout_api_client.dart' as _i108;
 import '../../api/data_source/auth/auth_remote_data_source_impl.dart' as _i153;
+import '../../api/data_source/exercise/exercise_data_source_impl.dart' as _i670;
 import '../../api/data_source/main_layout/explore_remote_data_source_impl.dart'
     as _i656;
 import '../../api/data_source/main_layout/workout_remote_data_source_impl.dart'
     as _i1013;
 import '../../data/data_source/auth/auth_remote_data_source.dart' as _i573;
+import '../../data/data_source/exercise/exercise_data_source.dart' as _i717;
 import '../../data/data_source/main_layout/explore_remote_data_source.dart'
     as _i171;
 import '../../data/data_source/main_layout/workout_remote_data_source.dart'
     as _i222;
 import '../../data/repo_impl/auth/auth_repo_impl.dart' as _i947;
+import '../../data/repo_impl/exercise/exercise_repo_impl.dart' as _i252;
 import '../../data/repo_impl/main_layout/explore_repo_impl.dart' as _i178;
 import '../../data/repo_impl/main_layout/workout_repo_impl.dart' as _i640;
 import '../../domain/repo/auth/auth_repo.dart' as _i894;
+import '../../domain/repo/exercise_repo/exercise_repo.dart' as _i936;
 import '../../domain/repo/main_layout/explore_repo.dart' as _i625;
 import '../../domain/repo/main_layout/workout_repo.dart' as _i42;
 import '../../domain/use_cases/auth/get_logged_user_data_use_case.dart'
     as _i804;
 import '../../domain/use_cases/auth/login_use_case.dart' as _i40;
 import '../../domain/use_cases/auth/signup_use_case.dart' as _i86;
+import '../../domain/use_cases/exercise/get_difficulty_level_use_case.dart'
+    as _i183;
+import '../../domain/use_cases/exercise/get_exercise_datails_use_case.dart'
+    as _i799;
 import '../../domain/use_cases/main_layout/explore_use_cases/get_food_category_use_case.dart'
     as _i864;
 import '../../domain/use_cases/main_layout/explore_use_cases/get_muscles_upcoming_by_group_id.dart'
@@ -51,6 +60,7 @@ import '../../domain/use_cases/main_layout/workout_use_cases/workout_get_muscle_
 import '../../features/auth/login/view_model/cubit/login_cubit.dart' as _i474;
 import '../../features/auth/sign_up/view_model/cubit/signup_cubit.dart'
     as _i593;
+import '../../features/exercise/view_model/cubit/exercise_cubit.dart' as _i777;
 import '../../features/main_layout/explore/view_model/cubit/explore_cubit.dart'
     as _i77;
 import '../../features/main_layout/workout/view_model/cubit/workout_cubit.dart'
@@ -81,11 +91,17 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i705.AuthApiClient>(
       () => _i705.AuthApiClient(gh<_i361.Dio>(instanceName: 'mainApi')),
     );
+    gh.factory<_i1009.ExeciseApiClient>(
+      () => _i1009.ExeciseApiClient(gh<_i361.Dio>(instanceName: 'mainApi')),
+    );
     gh.factory<_i984.ExploreApiClient>(
       () => _i984.ExploreApiClient(gh<_i361.Dio>(instanceName: 'mainApi')),
     );
     gh.factory<_i108.WorkoutApiClient>(
       () => _i108.WorkoutApiClient(gh<_i361.Dio>(instanceName: 'mainApi')),
+    );
+    gh.factory<_i717.ExerciseDataSource>(
+      () => _i670.ExerciseDataSourceImpl(gh<_i1009.ExeciseApiClient>()),
     );
     gh.factory<_i573.AuthRemoteDataSource>(
       () => _i153.AuthRemoteDataSourceImpl(gh<_i705.AuthApiClient>()),
@@ -104,6 +120,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i222.WorkoutRemoteDataSource>(
       () => _i1013.WorkoutRemoteDataSourceImpl(gh<_i108.WorkoutApiClient>()),
+    );
+    gh.factory<_i936.ExerciseRepo>(
+      () => _i252.ExerciseRepoImpl(gh<_i717.ExerciseDataSource>()),
     );
     gh.factory<_i40.LoginUseCase>(
       () => _i40.LoginUseCase(gh<_i894.AuthRepo>()),
@@ -132,6 +151,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i42.WorkoutRepo>(
       () => _i640.WorkoutRepoImpl(gh<_i222.WorkoutRemoteDataSource>()),
     );
+    gh.factory<_i183.GetDifficultyLevelUseCase>(
+      () => _i183.GetDifficultyLevelUseCase(gh<_i936.ExerciseRepo>()),
+    );
+    gh.factory<_i799.GetExerciseDatailsUseCase>(
+      () => _i799.GetExerciseDatailsUseCase(gh<_i936.ExerciseRepo>()),
+    );
     gh.factory<_i474.LoginCubit>(
       () => _i474.LoginCubit(gh<_i40.LoginUseCase>()),
     );
@@ -142,6 +167,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i953.GetMusclesUpcomingByGroupId>(),
         gh<_i864.GetFoodCategoryUseCase>(),
         gh<_i804.GetLoggedUserDataUseCase>(),
+      ),
+    );
+    gh.factory<_i777.ExerciseCubit>(
+      () => _i777.ExerciseCubit(
+        gh<_i183.GetDifficultyLevelUseCase>(),
+        gh<_i799.GetExerciseDatailsUseCase>(),
       ),
     );
     gh.factory<_i454.WorkoutGetMuscleUpcomingCategoryUseCase>(

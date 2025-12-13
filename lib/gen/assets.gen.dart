@@ -181,6 +181,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/cat5.png
   AssetGenImage get cat5 => const AssetGenImage('assets/images/cat5.png');
 
+  /// File path: assets/images/exercise.jpg
+  AssetGenImage get exercise =>
+      const AssetGenImage('assets/images/exercise.jpg');
+
   /// File path: assets/images/fitness.svg
   String get fitness => 'assets/images/fitness.svg';
 
@@ -239,6 +243,7 @@ class $AssetsImagesGen {
     cat3,
     cat4,
     cat5,
+    exercise,
     fitness,
     food,
     gumImage,

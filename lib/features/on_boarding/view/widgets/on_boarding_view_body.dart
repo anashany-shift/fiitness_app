@@ -151,6 +151,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   @override
   Widget build(BuildContext context) {
     return BlurredBackground(
+      
       imagePath: AppAssets.bgOnBoradnig,
       child: Stack(
         children: [

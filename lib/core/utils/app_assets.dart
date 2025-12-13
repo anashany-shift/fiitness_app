@@ -32,4 +32,5 @@ abstract class AppAssets {
   static const String rrr= "assets/images/rrr.jpg";
   static const String food= "assets/images/food.png";
   static const String popular= "assets/images/popular.jpg";
+  static const String exercise= "assets/images/exercise.jpg";
 }
