@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/routes/routes.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
+import 'package:fitness_app/features/exercise/view/exercise_view.dart';
 import 'package:fitness_app/features/main_layout/explore/view/widget/custom_image_container.dart';
 import 'package:fitness_app/features/main_layout/explore/view/widget/custom_tab_bar.dart';
 import 'package:fitness_app/features/main_layout/workout/view_model/cubit/workout_cubit.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class WorkoutViewBody extends StatefulWidget {
   const WorkoutViewBody({this.indexNotifier, this.idNotifier, super.key});
 
-final ValueNotifier<int>? indexNotifier;
+  final ValueNotifier<int>? indexNotifier;
   final ValueNotifier<String>? idNotifier;
   @override
   State<WorkoutViewBody> createState() => _WorkoutViewBodyState();
@@ -19,8 +20,8 @@ final ValueNotifier<int>? indexNotifier;
 
 class _WorkoutViewBodyState extends State<WorkoutViewBody> {
   int selectedIndex = 0;
-  
- @override
+
+  @override
   void initState() {
     super.initState();
 
@@ -31,15 +32,12 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
     if (widget.idNotifier != null && widget.idNotifier!.value.isNotEmpty) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         final groupId = widget.idNotifier!.value;
-        context.read<WorkoutCubit>().doIntent(WorkoutMuscleGroupEvent(groupId: groupId));
+        context.read<WorkoutCubit>().doIntent(
+          WorkoutMuscleGroupEvent(groupId: groupId),
+        );
       });
     }
-
-  
   }
-
- 
-
 
   @override
   void dispose() {
@@ -130,12 +128,31 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                        Navigator.pushNamed(
-                            context,
-                           Routes.exercise,
-                            arguments: {
-                              'exerciseId': upcomingGroups?[index].id ?? "",
-                            },
+                          final String id =
+                              state
+                                  .musclesUpcomingGroupEntity
+                                  ?.data?[index]
+                                  .id ??"";
+                              
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation,) =>
+                                      ExerciseView(primeMoveId: id),
+                              transitionsBuilder:
+                                  (
+                                    
+                                    context,
+                                    animation,
+                                    secondaryAnimation,
+                                    child,
+                                  ) {
+                                    return FadeTransition(
+                                      opacity: animation,
+                                      child: child,
+                                    );
+                                  },
+                            ),
                           );
                         },
                         child: CustomImageContainer(

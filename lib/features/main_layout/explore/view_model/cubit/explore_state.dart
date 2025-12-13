@@ -14,15 +14,18 @@ class ExploreState extends Equatable {
   final BaseState<List<MusclesUpcomingGroupEntity>>? musclesUpcomingGroupEntity;
   final BaseState<List<FoodCategoryEntity>>? foodCategoryEntity;
   final BaseState<UserInfoEntity>? loggedUserDataEntity;
+
   const ExploreState({
     this.foodCategoryEntity,
     this.musclesUpcomingEntity,
     this.randomMuscleEntity,
     this.musclesUpcomingGroupEntity,
-    this.loggedUserDataEntity,this.isAllDataLoading=false,
+    this.loggedUserDataEntity,
+    this.isAllDataLoading = false,
   });
+  
   ExploreState copyWith({
-  bool? isAllDataLoading,
+    bool? isAllDataLoading,
     final BaseState<List<RandomMuscleEntity>>? randomMuscleEntity,
     final BaseState<List<MusclesUpcomingEntity>>? musclesUpcomingEntity,
     final BaseState<List<MusclesUpcomingGroupEntity>>?
@@ -31,7 +34,7 @@ class ExploreState extends Equatable {
     final BaseState<UserInfoEntity>? loggedUserDataEntity,
   }) {
     return ExploreState(
-    isAllDataLoading: isAllDataLoading ?? this.isAllDataLoading,
+      isAllDataLoading: isAllDataLoading ?? this.isAllDataLoading,
       randomMuscleEntity: randomMuscleEntity ?? this.randomMuscleEntity,
       musclesUpcomingEntity:
           musclesUpcomingEntity ?? this.musclesUpcomingEntity,
@@ -39,7 +42,6 @@ class ExploreState extends Equatable {
           musclesUpcomingGroupEntity ?? this.musclesUpcomingGroupEntity,
       foodCategoryEntity: foodCategoryEntity ?? this.foodCategoryEntity,
       loggedUserDataEntity: loggedUserDataEntity ?? this.loggedUserDataEntity,
-    
     );
   }
 

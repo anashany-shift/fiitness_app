@@ -1,6 +1,5 @@
 import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/features/auth/login/view/login_view.dart';
-import 'package:fitness_app/features/auth/login/view_model/cubit/login_cubit.dart';
 import 'package:fitness_app/features/auth/sign_up/view/sign_up_view.dart';
 import 'package:fitness_app/features/exercise/view/exercise_view.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit.dart';
@@ -24,10 +23,7 @@ abstract class AppRoutes {
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.login:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => getIt.get<LoginCubit>(),
-            child: const LoginView(),
-          ),
+          builder: (_) => const LoginView(),
         );
       case Routes.signUp:
         return MaterialPageRoute(builder: (_) => const SignUpView());
@@ -48,7 +44,8 @@ abstract class AppRoutes {
           ),
         );
       case Routes.exercise:
-        return MaterialPageRoute(builder: (_) => const ExerciseView());
+      final String primeMoveId=settings.arguments as String;
+        return MaterialPageRoute(builder: (_) =>  ExerciseView(primeMoveId:primeMoveId ,));
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
