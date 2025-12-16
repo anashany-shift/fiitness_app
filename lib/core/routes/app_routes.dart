@@ -2,6 +2,7 @@ import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/features/auth/login/view/login_view.dart';
 import 'package:fitness_app/features/auth/sign_up/view/sign_up_view.dart';
 import 'package:fitness_app/features/exercise/view/exercise_view.dart';
+import 'package:fitness_app/features/food_details/view/food_details_view.dart';
 import 'package:fitness_app/features/food_recomndation_category/view/food_recomendation_category_view.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit_event.dart';
@@ -50,6 +51,8 @@ abstract class AppRoutes {
       case Routes.foodRecomendationCategory:
       final String categoryName=settings.arguments as String;
         return MaterialPageRoute(builder: (_) =>  FoodRecomendationCategoryView(categoryName:categoryName ,));
+case Routes.foodDetails:
+        return MaterialPageRoute(builder: (_) =>  FoodDetailsView());
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

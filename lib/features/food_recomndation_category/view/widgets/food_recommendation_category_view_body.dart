@@ -131,7 +131,7 @@ class FoodRecommendationCategoryViewBody extends StatelessWidget {
                                   return GestureDetector(
                                     onTap: () {
                                       final mealdId = meals[index].mealId;
-                                      // Navigator.pushNamed(context, Routes.)
+                                       Navigator.pushNamed(context, Routes.foodDetails);
                                     },
                                     child: CustomImageContainer(
                                       imagePath: meals[index].mealImage ?? "",
