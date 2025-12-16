@@ -1,3 +1,4 @@
+
 abstract class ApiConstant {
   static const baseUrl = "https://fitness.elevateegy.com/api/v1/";
   static const baseUrl2 = "https://www.themealdb.com/api/json/v1/1/";
@@ -19,4 +20,5 @@ abstract class ApiConstant {
   static const getLoggedUserData = "auth/profile-data";
   static const getDifficultyLivelByPrimeMover = "levels/difficulty-levels/by-prime-mover";
   static const getExerciseDetails = "exercises/by-muscle-difficulty";
+  static const mealsByCategory = "filter.php";
 }
