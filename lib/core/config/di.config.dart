@@ -15,26 +15,35 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../../api/client/auth_api_client/auth_api_client.dart' as _i705;
 import '../../api/client/execise_api_client.dart' as _i1009;
+import '../../api/client/food_api_client.dart' as _i238;
 import '../../api/client/main_layout_client/explore_api_client.dart' as _i984;
 import '../../api/client/main_layout_client/workout_api_client.dart' as _i108;
 import '../../api/data_source/auth/auth_remote_data_source_impl.dart' as _i153;
 import '../../api/data_source/exercise/exercise_data_source_impl.dart' as _i670;
+import '../../api/data_source/food_recommendation/food_recommendation_data_source_impl.dart'
+    as _i594;
 import '../../api/data_source/main_layout/explore_remote_data_source_impl.dart'
     as _i656;
 import '../../api/data_source/main_layout/workout_remote_data_source_impl.dart'
     as _i1013;
 import '../../data/data_source/auth/auth_remote_data_source.dart' as _i573;
 import '../../data/data_source/exercise/exercise_data_source.dart' as _i717;
+import '../../data/data_source/food_recommendation/food_recommendation_data_source.dart'
+    as _i291;
 import '../../data/data_source/main_layout/explore_remote_data_source.dart'
     as _i171;
 import '../../data/data_source/main_layout/workout_remote_data_source.dart'
     as _i222;
 import '../../data/repo_impl/auth/auth_repo_impl.dart' as _i947;
 import '../../data/repo_impl/exercise/exercise_repo_impl.dart' as _i252;
+import '../../data/repo_impl/food_recommendation_repo_impl/food_recommendation_repo_impl.dart'
+    as _i553;
 import '../../data/repo_impl/main_layout/explore_repo_impl.dart' as _i178;
 import '../../data/repo_impl/main_layout/workout_repo_impl.dart' as _i640;
 import '../../domain/repo/auth/auth_repo.dart' as _i894;
 import '../../domain/repo/exercise_repo/exercise_repo.dart' as _i936;
+import '../../domain/repo/food_recommendation/food_recommendation_repo.dart'
+    as _i350;
 import '../../domain/repo/main_layout/explore_repo.dart' as _i625;
 import '../../domain/repo/main_layout/workout_repo.dart' as _i42;
 import '../../domain/use_cases/auth/get_logged_user_data_use_case.dart'
@@ -45,6 +54,10 @@ import '../../domain/use_cases/exercise/get_difficulty_level_use_case.dart'
     as _i183;
 import '../../domain/use_cases/exercise/get_exercise_datails_use_case.dart'
     as _i799;
+import '../../domain/use_cases/food_recomendation/get_meals_by_category_use_case.dart'
+    as _i519;
+import '../../domain/use_cases/food_recomendation/get_meals_categories_use_case.dart'
+    as _i819;
 import '../../domain/use_cases/main_layout/explore_use_cases/get_food_category_use_case.dart'
     as _i864;
 import '../../domain/use_cases/main_layout/explore_use_cases/get_muscles_upcoming_by_group_id.dart'
@@ -61,6 +74,8 @@ import '../../features/auth/login/view_model/cubit/login_cubit.dart' as _i474;
 import '../../features/auth/sign_up/view_model/cubit/signup_cubit.dart'
     as _i593;
 import '../../features/exercise/view_model/cubit/exercise_cubit.dart' as _i777;
+import '../../features/food_recomndation_category/view_model/cubit/food_recommendation_cubit.dart'
+    as _i475;
 import '../../features/main_layout/explore/view_model/cubit/explore_cubit.dart'
     as _i77;
 import '../../features/main_layout/workout/view_model/cubit/workout_cubit.dart'
@@ -85,8 +100,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => dioModule.provideMainDio(),
       instanceName: 'mainApi',
     );
-    gh.factory<_i984.FoodApiCLient>(
-      () => _i984.FoodApiCLient(gh<_i361.Dio>(instanceName: 'secondaryApi')),
+    gh.factory<_i238.FoodApiCLient>(
+      () => _i238.FoodApiCLient(gh<_i361.Dio>(instanceName: 'secondaryApi')),
+    );
+    gh.factory<_i291.FoodRecommendationDataSource>(
+      () => _i594.FoodRecommendationDataSourceImpl(gh<_i238.FoodApiCLient>()),
     );
     gh.factory<_i705.AuthApiClient>(
       () => _i705.AuthApiClient(gh<_i361.Dio>(instanceName: 'mainApi')),
@@ -100,23 +118,40 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i108.WorkoutApiClient>(
       () => _i108.WorkoutApiClient(gh<_i361.Dio>(instanceName: 'mainApi')),
     );
+    gh.factory<_i350.FoodRecommendationRepo>(
+      () => _i553.FoodRecommendationRepoImpl(
+        gh<_i291.FoodRecommendationDataSource>(),
+      ),
+    );
     gh.factory<_i717.ExerciseDataSource>(
       () => _i670.ExerciseDataSourceImpl(gh<_i1009.ExeciseApiClient>()),
     );
     gh.factory<_i573.AuthRemoteDataSource>(
       () => _i153.AuthRemoteDataSourceImpl(gh<_i705.AuthApiClient>()),
     );
-    gh.factory<_i894.AuthRepo>(
-      () => _i947.AuthRepoImpl(gh<_i573.AuthRemoteDataSource>()),
+    gh.factory<_i519.GetMealsByCategoryUseCase>(
+      () => _i519.GetMealsByCategoryUseCase(gh<_i350.FoodRecommendationRepo>()),
+    );
+    gh.factory<_i819.GetMealsCategoriesUseCase>(
+      () => _i819.GetMealsCategoriesUseCase(gh<_i350.FoodRecommendationRepo>()),
     );
     gh.factory<_i171.ExploreRemoteDataSource>(
       () => _i656.ExploreRemoteDataSourceImpl(
         gh<_i984.ExploreApiClient>(),
-        gh<_i984.FoodApiCLient>(),
+        gh<_i238.FoodApiCLient>(),
       ),
+    );
+    gh.factory<_i894.AuthRepo>(
+      () => _i947.AuthRepoImpl(gh<_i573.AuthRemoteDataSource>()),
     );
     gh.factory<_i625.ExploreRepo>(
       () => _i178.ExploreRepoImpl(gh<_i171.ExploreRemoteDataSource>()),
+    );
+    gh.factory<_i475.FoodRecommendationCubit>(
+      () => _i475.FoodRecommendationCubit(
+        gh<_i519.GetMealsByCategoryUseCase>(),
+        gh<_i819.GetMealsCategoriesUseCase>(),
+      ),
     );
     gh.factory<_i222.WorkoutRemoteDataSource>(
       () => _i1013.WorkoutRemoteDataSourceImpl(gh<_i108.WorkoutApiClient>()),

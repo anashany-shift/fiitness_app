@@ -33,14 +33,3 @@ extension MusclesUpcomingFroupResponseMapper on MusclesUpcomingGroupResponse {
     }).toList();
   }
 }
-extension FoodCategoryResponseMapper on FoodCategoryResponse {
-  List<FoodCategoryEntity> toEntity() {
-    return  foodCategories.map((food) {
-      return FoodCategoryEntity(
-        id: food.id,
-        name: food.name,
-        thumbnail: food.thumbnail,
-      );
-    }).toList();
-  }
-}

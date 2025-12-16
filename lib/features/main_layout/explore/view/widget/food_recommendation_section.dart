@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/routes/routes.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:fitness_app/features/main_layout/explore/view/widget/recommendation_item.dart';
@@ -41,21 +42,36 @@ class FoodRecommendationSection extends StatelessWidget {
               }
               if (state.foodCategoryEntity?.data != null) {
                 final foodCategories = state.foodCategoryEntity?.data;
-                return  SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
-                child: Row(
-                  children: List.generate(foodCategories?.length??0, (index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
-                      child: RecommendationItem(
-                        title: foodCategories?[index].name??"",
-                        imagePath: foodCategories?[index].thumbnail??"",
-                      ),
-                    );
-                  }),
-                ),
-              );
+                return SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  physics: BouncingScrollPhysics(),
+                  child: Row(
+                    children: List.generate(foodCategories?.length ?? 0, (
+                      index,
+                    ) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 16.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            final categoryName = foodCategories?[index]
+                                .name; // 🆕 استخراج اسم الفئة
+                            if (categoryName != null) {
+                              Navigator.pushNamed(
+                                context,
+                                Routes.foodRecomendationCategory,
+                                arguments: categoryName, // 🆗 تمرير اسم الفئة
+                              );
+                            }
+                          },
+                          child: RecommendationItem(
+                            title: foodCategories?[index].name ?? "",
+                            imagePath: foodCategories?[index].thumbnail ?? "",
+                          ),
+                        ),
+                      );
+                    }),
+                  ),
+                );
               } else {
                 return SizedBox.shrink();
               }

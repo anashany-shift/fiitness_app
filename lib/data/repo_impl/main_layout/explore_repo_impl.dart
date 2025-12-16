@@ -1,4 +1,5 @@
 import 'package:fitness_app/api/mapper/main_layout/explore_mapper.dart';
+import 'package:fitness_app/api/mapper/meals_mapper.dart';
 import 'package:fitness_app/api/models/responses/explore/muscles_upcoming_response.dart';
 import 'package:fitness_app/api/models/responses/explore/random_muscles_response.dart';
 import 'package:fitness_app/core/helper/api_result.dart';

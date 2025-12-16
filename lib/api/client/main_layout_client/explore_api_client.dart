@@ -39,13 +39,3 @@ abstract class ExploreApiClient {
  
 }
 
-@injectable
-@RestApi()
-abstract class FoodApiCLient {
-  @factoryMethod
-  factory FoodApiCLient(@Named("secondaryApi")Dio dio) = _FoodApiCLient;
-
-   @GET(ApiConstant.getFoodCategories)
-  Future<FoodCategoryResponse>getFoodCategories();
-
-}
