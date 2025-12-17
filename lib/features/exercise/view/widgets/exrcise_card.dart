@@ -1,4 +1,3 @@
-import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,7 +20,7 @@ class ExerciseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final thumbnailUrl = getThumbnailUrl(youtubeLink); // <--- جلب رابط الصورة
+    final thumbnailUrl = getThumbnailUrl(youtubeLink); 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Container(

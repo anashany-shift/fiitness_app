@@ -4,6 +4,7 @@ import 'package:fitness_app/core/helper/safe_api_call.dart';
 import 'package:fitness_app/data/data_source/food_recommendation/food_recommendation_data_source.dart';
 import 'package:fitness_app/domain/entities/meals_entity/meals_by_category_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/food_category_entity.dart';
+import 'package:fitness_app/domain/entities/responses/explore_entities/food_datails_entity.dart';
 import 'package:fitness_app/domain/repo/food_recommendation/food_recommendation_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -27,6 +28,18 @@ class FoodRecommendationRepoImpl implements FoodRecommendationRepo {
     return safeApiCall(() async {
       final response = await foodRecommendationDataSource.getMealsByCategory(
         categoryName: categoryName,
+      );
+      return response;
+    }, (response) => response.toEntity());
+  }
+
+  @override
+  Future<ApiResult<List<FoodDatailsEntity>>> getMealDetails({
+    required String mealId,
+  }) async {
+    return safeApiCall(() async {
+      final response = await foodRecommendationDataSource.getMealDetails(
+        mealId: mealId,
       );
       return response;
     }, (response) => response.toEntity());

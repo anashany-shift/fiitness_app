@@ -2,6 +2,7 @@ import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/features/auth/login/view/login_view.dart';
 import 'package:fitness_app/features/auth/sign_up/view/sign_up_view.dart';
 import 'package:fitness_app/features/exercise/view/exercise_view.dart';
+import 'package:fitness_app/features/food_details/view/food_details_view.dart';
 import 'package:fitness_app/features/food_recomndation_category/view/food_recomendation_category_view.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit_event.dart';
@@ -23,9 +24,7 @@ abstract class AppRoutes {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.login:
-        return MaterialPageRoute(
-          builder: (_) => const LoginView(),
-        );
+        return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.signUp:
         return MaterialPageRoute(builder: (_) => const SignUpView());
       case Routes.mainLayout:
@@ -45,11 +44,19 @@ abstract class AppRoutes {
           ),
         );
       case Routes.exercise:
-      final String primeMoveId=settings.arguments as String;
-        return MaterialPageRoute(builder: (_) =>  ExerciseView(primeMoveId:primeMoveId ,));
+        final String primeMoveId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => ExerciseView(primeMoveId: primeMoveId),
+        );
       case Routes.foodRecomendationCategory:
-      final String categoryName=settings.arguments as String;
-        return MaterialPageRoute(builder: (_) =>  FoodRecomendationCategoryView(categoryName:categoryName ,));
+        final String categoryName = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) =>
+              FoodRecomendationCategoryView(categoryName: categoryName),
+        );
+      case Routes.foodDetails:
+      final String mealId=settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => FoodDetailsView(mealId: mealId,));
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());
