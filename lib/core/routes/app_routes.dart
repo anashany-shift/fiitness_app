@@ -24,9 +24,7 @@ abstract class AppRoutes {
       case Routes.onBoarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.login:
-        return MaterialPageRoute(
-          builder: (_) => const LoginView(),
-        );
+        return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.signUp:
         return MaterialPageRoute(builder: (_) => const SignUpView());
       case Routes.mainLayout:
@@ -46,13 +44,19 @@ abstract class AppRoutes {
           ),
         );
       case Routes.exercise:
-      final String primeMoveId=settings.arguments as String;
-        return MaterialPageRoute(builder: (_) =>  ExerciseView(primeMoveId:primeMoveId ,));
+        final String primeMoveId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => ExerciseView(primeMoveId: primeMoveId),
+        );
       case Routes.foodRecomendationCategory:
-      final String categoryName=settings.arguments as String;
-        return MaterialPageRoute(builder: (_) =>  FoodRecomendationCategoryView(categoryName:categoryName ,));
-case Routes.foodDetails:
-        return MaterialPageRoute(builder: (_) =>  FoodDetailsView());
+        final String categoryName = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) =>
+              FoodRecomendationCategoryView(categoryName: categoryName),
+        );
+      case Routes.foodDetails:
+      final String mealId=settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => FoodDetailsView(mealId: mealId,));
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

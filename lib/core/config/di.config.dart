@@ -54,6 +54,8 @@ import '../../domain/use_cases/exercise/get_difficulty_level_use_case.dart'
     as _i183;
 import '../../domain/use_cases/exercise/get_exercise_datails_use_case.dart'
     as _i799;
+import '../../domain/use_cases/food_recomendation/get_meal_datails_use_case.dart'
+    as _i622;
 import '../../domain/use_cases/food_recomendation/get_meals_by_category_use_case.dart'
     as _i519;
 import '../../domain/use_cases/food_recomendation/get_meals_categories_use_case.dart'
@@ -74,6 +76,8 @@ import '../../features/auth/login/view_model/cubit/login_cubit.dart' as _i474;
 import '../../features/auth/sign_up/view_model/cubit/signup_cubit.dart'
     as _i593;
 import '../../features/exercise/view_model/cubit/exercise_cubit.dart' as _i777;
+import '../../features/food_details/view_model/cubit/food_details_cubit.dart'
+    as _i687;
 import '../../features/food_recomndation_category/view_model/cubit/food_recommendation_cubit.dart'
     as _i475;
 import '../../features/main_layout/explore/view_model/cubit/explore_cubit.dart'
@@ -129,6 +133,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i573.AuthRemoteDataSource>(
       () => _i153.AuthRemoteDataSourceImpl(gh<_i705.AuthApiClient>()),
     );
+    gh.factory<_i622.GetMealDatailsUseCase>(
+      () => _i622.GetMealDatailsUseCase(gh<_i350.FoodRecommendationRepo>()),
+    );
     gh.factory<_i519.GetMealsByCategoryUseCase>(
       () => _i519.GetMealsByCategoryUseCase(gh<_i350.FoodRecommendationRepo>()),
     );
@@ -143,6 +150,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i894.AuthRepo>(
       () => _i947.AuthRepoImpl(gh<_i573.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i687.FoodDetailsCubit>(
+      () => _i687.FoodDetailsCubit(gh<_i622.GetMealDatailsUseCase>()),
     );
     gh.factory<_i625.ExploreRepo>(
       () => _i178.ExploreRepoImpl(gh<_i171.ExploreRemoteDataSource>()),
