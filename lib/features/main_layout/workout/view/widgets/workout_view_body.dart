@@ -1,4 +1,3 @@
-import 'package:fitness_app/core/routes/routes.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:fitness_app/features/exercise/view/exercise_view.dart';
 import 'package:fitness_app/features/main_layout/explore/view/widget/custom_image_container.dart';
@@ -39,12 +38,8 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
     }
   }
 
-  @override
-  void dispose() {
-    widget.indexNotifier?.value;
-    widget.idNotifier?.value;
-    super.dispose();
-  }
+  
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +52,7 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
 
           BlocBuilder<WorkoutCubit, WorkoutState>(
             builder: (context, state) {
+                print("Muscles state: ${state.musclesUpcomingEntity}");
               if (state.musclesUpcomingEntity?.isLoading == true) {
                 return Center(child: CircularProgressIndicator());
               }

@@ -1,3 +1,5 @@
+import 'package:bloc/bloc.dart';
+import 'package:fitness_app/bloc_observer.dart';
 import 'package:fitness_app/core/config/di.dart';
 import 'package:fitness_app/core/l10n/translation/app_localizations.dart';
 import 'package:fitness_app/core/routes/routes.dart';
@@ -5,11 +7,18 @@ import 'package:fitness_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'core/routes/app_routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+ 
   configureDependencies();
+   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TextFormFieldModel {
+  final bool isAiChat;
   final String hint;
   final Widget? suffix;
   final Widget? preSuffix;
@@ -24,5 +25,6 @@ class TextFormFieldModel {
     this.onChanged,
     this.obscureText = false,
     this.readOnly = false,
+    this.isAiChat=false
   });
 }

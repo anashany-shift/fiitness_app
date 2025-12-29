@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:fitness_app/api/models/responses/exercise/difficulty_level_response.dart';
 import 'package:fitness_app/api/models/responses/exercise/exercise_response.dart';
