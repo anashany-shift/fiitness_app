@@ -38,9 +38,9 @@ class WorkoutCubit extends Cubit<WorkoutState> {
     }
   }   
   void _getAllData() async {
-   await Future.wait([
-      _getMusclesUpcoming(),
-    ]);
+   
+      _getMusclesUpcoming();
+    
 
     final groupId = state.musclesUpcomingEntity?.data?.first.id;
 

@@ -8,4 +8,6 @@ abstract class Routes {
   static const String exercise = '/exercise';
   static const String foodRecomendationCategory = '/foodRecomendationCategory';
   static const String foodDetails = '/foodDetails';
+  static const String getStartedView = '/getStartedView';
+  static const String chatView = '/chatView';
 }

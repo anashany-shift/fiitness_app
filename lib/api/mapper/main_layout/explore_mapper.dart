@@ -1,8 +1,6 @@
-import 'package:fitness_app/api/models/responses/explore/food_category_response.dart';
 import 'package:fitness_app/api/models/responses/explore/muscles_upcoming_group_response.dart';
 import 'package:fitness_app/api/models/responses/explore/muscles_upcoming_response.dart';
 import 'package:fitness_app/api/models/responses/explore/random_muscles_response.dart';
-import 'package:fitness_app/domain/entities/responses/explore_entities/food_category_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/muscles_upcoming_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/muscles_upcoming_group_entity.dart';
 import 'package:fitness_app/domain/entities/responses/explore_entities/random_muscle_entity.dart';

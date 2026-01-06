@@ -82,6 +82,8 @@ import '../../features/food_recomndation_category/view_model/cubit/food_recommen
     as _i475;
 import '../../features/main_layout/explore/view_model/cubit/explore_cubit.dart'
     as _i77;
+import '../../features/main_layout/smart_couch/view_model/cubit/smart_couch_cubit.dart'
+    as _i202;
 import '../../features/main_layout/workout/view_model/cubit/workout_cubit.dart'
     as _i351;
 import '../module/dio_module.dart' as _i545;
@@ -213,6 +215,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i864.GetFoodCategoryUseCase>(),
         gh<_i804.GetLoggedUserDataUseCase>(),
       ),
+    );
+    gh.factory<_i202.SmartCouchCubit>(
+      () => _i202.SmartCouchCubit(gh<_i804.GetLoggedUserDataUseCase>()),
     );
     gh.factory<_i777.ExerciseCubit>(
       () => _i777.ExerciseCubit(

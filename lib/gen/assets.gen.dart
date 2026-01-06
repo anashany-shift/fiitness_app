@@ -111,6 +111,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/workout.svg
   String get workout => 'assets/icons/workout.svg';
 
+  /// File path: assets/icons/youtube-youtube-svgrepo-com.svg
+  String get youtubeYoutubeSvgrepoCom =>
+      'assets/icons/youtube-youtube-svgrepo-com.svg';
+
   /// List of all assets
   List<dynamic> get values => [
     a20,
@@ -143,6 +147,7 @@ class $AssetsIconsGen {
     profileSvg,
     smart,
     workout,
+    youtubeYoutubeSvgrepoCom,
   ];
 }
 
@@ -225,6 +230,14 @@ class $AssetsImagesGen {
   /// File path: assets/images/rrr.jpg
   AssetGenImage get rrr => const AssetGenImage('assets/images/rrr.jpg');
 
+  /// File path: assets/images/smart_couch.png
+  AssetGenImage get smartCouch =>
+      const AssetGenImage('assets/images/smart_couch.png');
+
+  /// File path: assets/images/smart_couch_bg.jpg
+  AssetGenImage get smartCouchBg =>
+      const AssetGenImage('assets/images/smart_couch_bg.jpg');
+
   /// File path: assets/images/trainer.svg
   String get trainer => 'assets/images/trainer.svg';
 
@@ -256,6 +269,8 @@ class $AssetsImagesGen {
     recomendedImage,
     ropot,
     rrr,
+    smartCouch,
+    smartCouchBg,
     trainer,
     yoga,
   ];

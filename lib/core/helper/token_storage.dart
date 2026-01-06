@@ -8,7 +8,7 @@ class TokenStorage {
 
 static Future<bool> isFirstLaunch() async {
   final value = await _storage.read(key: _firstLaunchKey);
-  return value == null; // لو مفيش قيمة → أول مرة
+  return value == null; 
 }
 
 static Future<void> setFirstLaunchDone() async {

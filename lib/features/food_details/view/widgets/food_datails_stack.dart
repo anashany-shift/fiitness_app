@@ -1,7 +1,6 @@
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:fitness_app/core/utils/app_text_style.dart';
-import 'package:fitness_app/features/food_details/view/widgets/custom_food_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';

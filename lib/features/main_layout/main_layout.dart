@@ -1,9 +1,10 @@
+import 'package:fitness_app/core/routes/routes.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/widget/blurred_bg.dart';
 import 'package:fitness_app/features/main_layout/explore/view/explore_view.dart';
-import 'package:fitness_app/features/main_layout/smart_couch/view/smart_couch_view.dart';
+import 'package:fitness_app/features/main_layout/smart_couch/view/get_started_view.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,18 +20,11 @@ class MainLayout extends StatefulWidget {
 }
 
 class _MainLayoutState extends State<MainLayout> {
-
-
   int currentIndex = 0;
   final PageController _pageController = PageController();
   bool isBottomNavVisible = true;
   final ValueNotifier<int> workpoutIndexNotifier = ValueNotifier(0);
   final ValueNotifier<String> workpoutGroupId = ValueNotifier("");
-
-
-
-
-
 
   void onExploreTapBarSelected(int index, String groupId) {
     setState(() {
@@ -42,9 +36,6 @@ class _MainLayoutState extends State<MainLayout> {
     _pageController.jumpToPage(2);
   }
 
-
-
-
   late List<Widget> pages;
 
   @override
@@ -52,7 +43,7 @@ class _MainLayoutState extends State<MainLayout> {
     super.initState();
     pages = [
       ExploreView(onTapBar: (index, id) => onExploreTapBarSelected(index, id)),
-      SmartCouchview(),
+       GetStrtedSmartCouchview(),
       WorkoutView(
         indexNotifier: workpoutIndexNotifier,
         idNotifier: workpoutGroupId,
@@ -63,7 +54,6 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Scaffold(
         extendBody: true,
@@ -126,12 +116,15 @@ class _MainLayoutState extends State<MainLayout> {
                       elevation: 0,
                       currentIndex: currentIndex,
                       onTap: (value) {
-                        setState(() {
-                          currentIndex = value;
-                          isBottomNavVisible = true;
-                        });
-                        _pageController.jumpToPage(value);
-                        
+                        if (value == 1) {
+                          Navigator.pushNamed(context, Routes.getStartedView);
+                        } else {
+                          setState(() {
+                            currentIndex = value;
+                            isBottomNavVisible = true;
+                          });
+                          _pageController.jumpToPage(value);
+                        }
                       },
                       items: [
                         BottomNavigationBarItem(

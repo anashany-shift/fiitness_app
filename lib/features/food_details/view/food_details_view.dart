@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/config/di.dart';
-import 'package:fitness_app/features/food_details/view/widgets/food_datails_card.dart';
 import 'package:fitness_app/features/food_details/view/widgets/food_details_view_body.dart';
 import 'package:fitness_app/features/food_details/view_model/cubit/food_details_cubit.dart';
 import 'package:fitness_app/features/food_details/view_model/cubit/food_details_event.dart';

@@ -34,4 +34,6 @@ abstract class AppAssets {
   static const String popular= "assets/images/popular.jpg";
   static const String exercise= "assets/images/exercise.jpg";
   static const String youtube= "assets/icons/youtube-youtube-svgrepo-com.svg";
+  static const String smartCouchBg= "assets/images/smart_couch_bg.jpg";
+  static const String smartCouchAvatar= "assets/images/ropot.png";
 }

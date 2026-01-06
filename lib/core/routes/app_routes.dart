@@ -7,6 +7,9 @@ import 'package:fitness_app/features/food_recomndation_category/view/food_recome
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit_event.dart';
 import 'package:fitness_app/features/main_layout/main_layout.dart';
+import 'package:fitness_app/features/main_layout/smart_couch/view/get_started_view.dart';
+import 'package:fitness_app/features/main_layout/smart_couch/view/smart_couch_caht_view.dart';
+import 'package:fitness_app/features/main_layout/smart_couch/view_model/cubit/smart_couch_cubit.dart';
 import 'package:fitness_app/features/main_layout/workout/view_model/cubit/workout_cubit.dart';
 import 'package:fitness_app/features/main_layout/workout/view_model/cubit/workout_cubit_event.dart';
 import 'package:fitness_app/features/on_boarding/view/on_boarding_view.dart';
@@ -55,8 +58,26 @@ abstract class AppRoutes {
               FoodRecomendationCategoryView(categoryName: categoryName),
         );
       case Routes.foodDetails:
-      final String mealId=settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => FoodDetailsView(mealId: mealId,));
+        final String mealId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => FoodDetailsView(mealId: mealId),
+        );
+      case Routes.getStartedView:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+              create: (context) => getIt.get<SmartCouchCubit>(),
+            child: GetStrtedSmartCouchview(),
+          ),
+        );
+
+      case Routes.chatView:
+        final String? chatId = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: getIt.get<SmartCouchCubit>(),
+            child: SmartCouchCahtView(chatId: chatId),
+          ),
+        );
 
       default:
         return MaterialPageRoute(builder: (_) => const LoginView());

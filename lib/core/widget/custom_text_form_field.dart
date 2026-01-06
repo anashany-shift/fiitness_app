@@ -10,6 +10,9 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       readOnly: textFormFieldModel.readOnly,
       controller: textFormFieldModel.controller,
+      maxLines: textFormFieldModel.isAiChat?null:1,
+      minLines: 1,
+
       
 
       autovalidateMode: AutovalidateMode.onUserInteraction,

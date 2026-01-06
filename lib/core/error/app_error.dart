@@ -44,7 +44,6 @@ class ErrorHandler {
         return _extractServerError(error.response);
 
       case DioExceptionType.unknown:
-      default:
         return AppError(message: 'Unexpected error: ${error.message}');
     }
   }
