@@ -6,8 +6,12 @@ import 'package:fitness_app/features/main_layout/smart_couch/view_model/cubit/sm
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+typedef ChatSelectedCallback = void Function(String chatId);
+
 class HistoryChatDrawer extends StatefulWidget {
-  const HistoryChatDrawer({super.key});
+  final ChatSelectedCallback? onChatSelected;
+  const HistoryChatDrawer({super.key, this.onChatSelected});
 
   @override
   State<HistoryChatDrawer> createState() => _HistoryChatDrawerState();
@@ -54,11 +58,15 @@ class _HistoryChatDrawerState extends State<HistoryChatDrawer> {
                   SizedBox(height: 24),
                   BlocBuilder<SmartCouchCubit, SmartCouchState>(
                     builder: (context, state) {
+                   final historyList = state.chatHistory?.data ?? [];
+                   
+
                       if (state.chatHistory?.isLoading == true) {
                         return const Center(child: CircularProgressIndicator());
                       }
                       if (state.chatHistory?.data != null) {
-                        final historyList = state.chatHistory?.data ?? [];
+                        //final historyList = state.chatHistory?.data ?? [];
+                        
                         return Expanded(
                           child: ListView.separated(
                             itemBuilder: (context, index) {
@@ -69,10 +77,11 @@ class _HistoryChatDrawerState extends State<HistoryChatDrawer> {
                               return TitleOfConversation(
                                 title: title,
                                 onTap: () {
-                                  
-                                  context
-                                      .read<SmartCouchCubit>()
-                                      .openChatFromHistory(chatId);
+                                  if (widget.onChatSelected != null) {
+                                    widget.onChatSelected!(chatId);
+                                  } else {
+                                    context.read<SmartCouchCubit>().openChatFromHistory(chatId);
+                                  }
                                 },
                               );
                             },
@@ -96,16 +105,7 @@ class _HistoryChatDrawerState extends State<HistoryChatDrawer> {
                         return SizedBox.shrink();
                       }
 
-                      // if (historyList.isEmpty) {
-                      //   return Center(
-                      //     child: Text(
-                      //       "No history yet",
-                      //       style: AppTextStyle.medium12.copyWith(
-                      //         color: Colors.white54,
-                      //       ),
-                      //     ),
-                      //   );
-                      // }
+                      // 
                     },
                   ),
                 ],

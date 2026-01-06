@@ -69,11 +69,13 @@ abstract class AppRoutes {
             child: GetStrtedSmartCouchview(),
           ),
         );
+
       case Routes.chatView:
+        final String? chatId = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
-            value:  getIt.get<SmartCouchCubit>(),
-            child: SmartCouchCahtView(),
+            value: getIt.get<SmartCouchCubit>(),
+            child: SmartCouchCahtView(chatId: chatId),
           ),
         );
 

@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/models/text_form_filed.dart';
 import 'package:fitness_app/core/utils/app_assets.dart';
 import 'package:fitness_app/core/utils/app_colors.dart';
+import 'package:fitness_app/core/utils/app_text_style.dart';
 import 'package:fitness_app/core/widget/blurred_bg.dart';
 import 'package:fitness_app/core/widget/custom_text_form_field.dart';
 import 'package:fitness_app/features/main_layout/smart_couch/gemini_service/gemini_firebase_service.dart';
@@ -13,20 +14,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 class SmartCouchCahtView extends StatefulWidget {
-  const SmartCouchCahtView({super.key});
+  final String? chatId;
+  const SmartCouchCahtView({super.key, this.chatId});
 
   @override
   State<SmartCouchCahtView> createState() => _SmartCouchCahtViewState();
 }
 
 class _SmartCouchCahtViewState extends State<SmartCouchCahtView> {
-  // @override
-  // void initState() {
-  //   context.read<SmartCouchCubit>().loadChat();
-  //   super.initState();
-  // }
+  
 
+@override
+ void initState() {
+    super.initState();
+    if (widget.chatId != null && widget.chatId!.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.read<SmartCouchCubit>().openChatFromHistory(widget.chatId!);
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<SmartCouchCubit>();
@@ -55,8 +63,8 @@ class _SmartCouchCahtViewState extends State<SmartCouchCahtView> {
                     final isLoading = state.messages?.isLoading ?? false;
 
                     if (messages.isEmpty && !isLoading) {
-                      return const Center(
-                        child: Text("Start chatting with Smart Coach!"),
+                      return  Center(
+                        child: Text("Start chatting with Smart Coach!",style: AppTextStyle.medium18,),
                       );
                     }
 

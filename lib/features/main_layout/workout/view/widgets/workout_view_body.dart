@@ -38,9 +38,6 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
     }
   }
 
-  
- 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -52,7 +49,7 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
 
           BlocBuilder<WorkoutCubit, WorkoutState>(
             builder: (context, state) {
-                print("Muscles state: ${state.musclesUpcomingEntity}");
+              print("Muscles state: ${state.musclesUpcomingEntity}");
               if (state.musclesUpcomingEntity?.isLoading == true) {
                 return Center(child: CircularProgressIndicator());
               }
@@ -128,16 +125,16 @@ class _WorkoutViewBodyState extends State<WorkoutViewBody> {
                               state
                                   .musclesUpcomingGroupEntity
                                   ?.data?[index]
-                                  .id ??"";
-                              
+                                  .id ??
+                              "";
+
                           Navigator.of(context).push(
                             PageRouteBuilder(
                               pageBuilder:
-                                  (context, animation, secondaryAnimation,) =>
+                                  (context, animation, secondaryAnimation) =>
                                       ExerciseView(primeMoveId: id),
                               transitionsBuilder:
                                   (
-                                    
                                     context,
                                     animation,
                                     secondaryAnimation,

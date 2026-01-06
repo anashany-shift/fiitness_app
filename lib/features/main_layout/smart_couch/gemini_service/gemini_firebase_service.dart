@@ -1,5 +1,4 @@
 import 'package:firebase_ai/firebase_ai.dart';
-import 'package:flutter/foundation.dart';
 
 class GeminiFirebaseService {
   Future<String> getAiResponse(String prompt) async {
@@ -14,7 +13,6 @@ class GeminiFirebaseService {
       );
 
       final response = await model.generateContent([Content.text(prompt)]);
-      debugPrint(response.text);
 
       return response.text ?? 'No response from Gemini';
     } catch (e) {

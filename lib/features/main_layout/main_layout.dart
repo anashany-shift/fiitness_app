@@ -43,6 +43,7 @@ class _MainLayoutState extends State<MainLayout> {
     super.initState();
     pages = [
       ExploreView(onTapBar: (index, id) => onExploreTapBarSelected(index, id)),
+       GetStrtedSmartCouchview(),
       WorkoutView(
         indexNotifier: workpoutIndexNotifier,
         idNotifier: workpoutGroupId,
