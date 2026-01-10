@@ -1,3 +1,5 @@
+// dart format width=80
+
 /// GENERATED CODE - DO NOT MODIFY BY HAND
 /// *****************************************************
 ///  FlutterGen
@@ -5,27 +7,18 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
+// ignore_for_file: deprecated_member_use,directives_ordering,implicit_dynamic_list_literal,unnecessary_import
 
 import 'package:flutter/widgets.dart';
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/100%.png
-  AssetGenImage get a100 => const AssetGenImage('assets/icons/100%.png');
-
   /// File path: assets/icons/20%.png
   AssetGenImage get a20 => const AssetGenImage('assets/icons/20%.png');
 
-  /// File path: assets/icons/40%.png
-  AssetGenImage get a40 => const AssetGenImage('assets/icons/40%.png');
-
-  /// File path: assets/icons/60%.png
-  AssetGenImage get a60 => const AssetGenImage('assets/icons/60%.png');
-
-  /// File path: assets/icons/80%.png
-  AssetGenImage get a80 => const AssetGenImage('assets/icons/80%.png');
+  /// File path: assets/icons/24Language.svg
+  String get a24Language => 'assets/icons/24Language.svg';
 
   /// File path: assets/icons/Apple.svg
   String get apple => 'assets/icons/Apple.svg';
@@ -38,10 +31,6 @@ class $AssetsIconsGen {
   AssetGenImage get lockSetting =>
       const AssetGenImage('assets/icons/LockSetting.png');
 
-  /// File path: assets/icons/SecurityWarning.png
-  AssetGenImage get securityWarning =>
-      const AssetGenImage('assets/icons/SecurityWarning.png');
-
   /// File path: assets/icons/arrow.svg
   String get arrow => 'assets/icons/arrow.svg';
 
@@ -51,6 +40,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/change.png
   AssetGenImage get change => const AssetGenImage('assets/icons/change.png');
+
+  /// File path: assets/icons/changepassword.svg
+  String get changepassword => 'assets/icons/changepassword.svg';
 
   /// File path: assets/icons/chat ai.png
   AssetGenImage get chatAi => const AssetGenImage('assets/icons/chat ai.png');
@@ -70,6 +62,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/email.svg
   String get email => 'assets/icons/email.svg';
 
+  /// File path: assets/icons/explore.svg
+  String get explore => 'assets/icons/explore.svg';
+
   /// File path: assets/icons/eye.svg
   String get eye => 'assets/icons/eye.svg';
 
@@ -88,6 +83,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/help.png
   AssetGenImage get help => const AssetGenImage('assets/icons/help.png');
 
+  /// File path: assets/icons/helpicon.svg
+  String get helpicon => 'assets/icons/helpicon.svg';
+
   /// File path: assets/icons/home.png
   AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
 
@@ -96,6 +94,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/logout.png
   AssetGenImage get logout => const AssetGenImage('assets/icons/logout.png');
+
+  /// File path: assets/icons/logouticon.svg
+  String get logouticon => 'assets/icons/logouticon.svg';
 
   /// File path: assets/icons/male.png
   AssetGenImage get malePng => const AssetGenImage('assets/icons/male.png');
@@ -109,43 +110,69 @@ class $AssetsIconsGen {
   /// File path: assets/icons/password.svg
   String get password => 'assets/icons/password.svg';
 
+  /// File path: assets/icons/privacy.svg
+  String get privacy => 'assets/icons/privacy.svg';
+
   /// File path: assets/icons/profile.png
-  AssetGenImage get profile => const AssetGenImage('assets/icons/profile.png');
+  AssetGenImage get profilePng =>
+      const AssetGenImage('assets/icons/profile.png');
+
+  /// File path: assets/icons/profile.svg
+  String get profileSvg => 'assets/icons/profile.svg';
+
+  /// File path: assets/icons/security.svg
+  String get security => 'assets/icons/security.svg';
+
+  /// File path: assets/icons/smart.svg
+  String get smart => 'assets/icons/smart.svg';
+
+  /// File path: assets/icons/workout.svg
+  String get workout => 'assets/icons/workout.svg';
+
+  /// File path: assets/icons/youtube-youtube-svgrepo-com.svg
+  String get youtubeYoutubeSvgrepoCom =>
+      'assets/icons/youtube-youtube-svgrepo-com.svg';
 
   /// List of all assets
   List<dynamic> get values => [
-        a100,
-        a20,
-        a40,
-        a60,
-        a80,
-        apple,
-        language,
-        lockSetting,
-        securityWarning,
-        arrow,
-        arrowDown,
-        change,
-        chatAi,
-        chatImage,
-        clickedFemale,
-        clickedMale,
-        email,
-        eye,
-        facebook,
-        female,
-        google,
-        gym,
-        help,
-        home,
-        logo,
-        logout,
-        malePng,
-        maleSvg,
-        name,
-        password,
-        profile
-      ];
+    a20,
+    a24Language,
+    apple,
+    language,
+    lockSetting,
+    arrow,
+    arrowDown,
+    change,
+    changepassword,
+    chatAi,
+    chatImage,
+    clickedFemale,
+    clickedMale,
+    email,
+    explore,
+    eye,
+    facebook,
+    female,
+    google,
+    gym,
+    help,
+    helpicon,
+    home,
+    logo,
+    logout,
+    logouticon,
+    malePng,
+    maleSvg,
+    name,
+    password,
+    privacy,
+    profilePng,
+    profileSvg,
+    security,
+    smart,
+    workout,
+    youtubeYoutubeSvgrepoCom,
+  ];
 }
 
 class $AssetsImagesGen {
@@ -158,6 +185,9 @@ class $AssetsImagesGen {
   AssetGenImage get appLogo =>
       const AssetGenImage('assets/images/app_logo.png');
 
+  /// File path: assets/images/arobitica.svg
+  String get arobitica => 'assets/images/arobitica.svg';
+
   /// File path: assets/images/auth_bg.png
   AssetGenImage get authBg => const AssetGenImage('assets/images/auth_bg.png');
 
@@ -165,17 +195,36 @@ class $AssetsImagesGen {
   AssetGenImage get bgOnBoarding =>
       const AssetGenImage('assets/images/bg_onBoarding.jpg');
 
-  /// File path: assets/images/defualtImage.png
-  AssetGenImage get defualtImage =>
-      const AssetGenImage('assets/images/defualtImage.png');
+  /// File path: assets/images/cat1.png
+  AssetGenImage get cat1 => const AssetGenImage('assets/images/cat1.png');
 
-  /// File path: assets/images/fitnessImage.png
-  AssetGenImage get fitnessImage =>
-      const AssetGenImage('assets/images/fitnessImage.png');
+  /// File path: assets/images/cat2.png
+  AssetGenImage get cat2 => const AssetGenImage('assets/images/cat2.png');
 
-  /// File path: assets/images/gymImaage.png
-  AssetGenImage get gymImaage =>
-      const AssetGenImage('assets/images/gymImaage.png');
+  /// File path: assets/images/cat3.png
+  AssetGenImage get cat3 => const AssetGenImage('assets/images/cat3.png');
+
+  /// File path: assets/images/cat4.png
+  AssetGenImage get cat4 => const AssetGenImage('assets/images/cat4.png');
+
+  /// File path: assets/images/cat5.png
+  AssetGenImage get cat5 => const AssetGenImage('assets/images/cat5.png');
+
+  /// File path: assets/images/exercise.jpg
+  AssetGenImage get exercise =>
+      const AssetGenImage('assets/images/exercise.jpg');
+
+  /// File path: assets/images/fitness.svg
+  String get fitness => 'assets/images/fitness.svg';
+
+  /// File path: assets/images/food.png
+  AssetGenImage get food => const AssetGenImage('assets/images/food.png');
+
+  /// File path: assets/images/gumImage.svg
+  String get gumImage => 'assets/images/gumImage.svg';
+
+  /// File path: assets/images/homeBg.jpg
+  AssetGenImage get homeBg => const AssetGenImage('assets/images/homeBg.jpg');
 
   /// File path: assets/images/onboarding1.png
   AssetGenImage get onboarding1 =>
@@ -189,38 +238,66 @@ class $AssetsImagesGen {
   AssetGenImage get onboarding3 =>
       const AssetGenImage('assets/images/onboarding3.png');
 
+  /// File path: assets/images/person.png
+  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
+
+  /// File path: assets/images/popular.jpg
+  AssetGenImage get popular => const AssetGenImage('assets/images/popular.jpg');
+
+  /// File path: assets/images/recomendedImage.jpg
+  AssetGenImage get recomendedImage =>
+      const AssetGenImage('assets/images/recomendedImage.jpg');
+
   /// File path: assets/images/ropot.png
   AssetGenImage get ropot => const AssetGenImage('assets/images/ropot.png');
 
-  /// File path: assets/images/trainerImage.png
-  AssetGenImage get trainerImage =>
-      const AssetGenImage('assets/images/trainerImage.png');
+  /// File path: assets/images/rrr.jpg
+  AssetGenImage get rrr => const AssetGenImage('assets/images/rrr.jpg');
 
-  /// File path: assets/images/user_photo.png
-  AssetGenImage get userPhoto =>
-      const AssetGenImage('assets/images/user_photo.png');
+  /// File path: assets/images/smart_couch.png
+  AssetGenImage get smartCouch =>
+      const AssetGenImage('assets/images/smart_couch.png');
 
-  /// File path: assets/images/yogaImage.png
-  AssetGenImage get yogaImage =>
-      const AssetGenImage('assets/images/yogaImage.png');
+  /// File path: assets/images/smart_couch_bg.jpg
+  AssetGenImage get smartCouchBg =>
+      const AssetGenImage('assets/images/smart_couch_bg.jpg');
+
+  /// File path: assets/images/trainer.svg
+  String get trainer => 'assets/images/trainer.svg';
+
+  /// File path: assets/images/yoga.svg
+  String get yoga => 'assets/images/yoga.svg';
 
   /// List of all assets
   List<dynamic> get values => [
-        backIcon,
-        appLogo,
-        authBg,
-        bgOnBoarding,
-        defualtImage,
-        fitnessImage,
-        gymImaage,
-        onboarding1,
-        onboarding2,
-        onboarding3,
-        ropot,
-        trainerImage,
-        userPhoto,
-        yogaImage
-      ];
+    backIcon,
+    appLogo,
+    arobitica,
+    authBg,
+    bgOnBoarding,
+    cat1,
+    cat2,
+    cat3,
+    cat4,
+    cat5,
+    exercise,
+    fitness,
+    food,
+    gumImage,
+    homeBg,
+    onboarding1,
+    onboarding2,
+    onboarding3,
+    person,
+    popular,
+    recomendedImage,
+    ropot,
+    rrr,
+    smartCouch,
+    smartCouchBg,
+    trainer,
+    yoga,
+  ];
 }
 
 class Assets {
@@ -235,12 +312,14 @@ class AssetGenImage {
     this._assetName, {
     this.size,
     this.flavors = const {},
+    this.animation,
   });
 
   final String _assetName;
 
   final Size? size;
   final Set<String> flavors;
+  final AssetGenImageAnimation? animation;
 
   Image image({
     Key? key,
@@ -295,18 +374,23 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({
-    AssetBundle? bundle,
-    String? package,
-  }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+  ImageProvider provider({AssetBundle? bundle, String? package}) {
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;
 
   String get keyName => _assetName;
+}
+
+class AssetGenImageAnimation {
+  const AssetGenImageAnimation({
+    required this.isAnimation,
+    required this.duration,
+    required this.frames,
+  });
+
+  final bool isAnimation;
+  final Duration duration;
+  final int frames;
 }

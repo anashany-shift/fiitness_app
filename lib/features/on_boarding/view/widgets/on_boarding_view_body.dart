@@ -151,6 +151,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
   @override
   Widget build(BuildContext context) {
     return BlurredBackground(
+      
       imagePath: AppAssets.bgOnBoradnig,
       child: Stack(
         children: [
@@ -192,7 +193,6 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           Align(
             alignment: Alignment.bottomCenter,
             child: BlurredContainer(
-              bottomBorderRadius: 0,
               padding: const EdgeInsets.only(
                 top: 31.5,
                 right: 16,

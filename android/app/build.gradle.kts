@@ -1,10 +1,14 @@
-plugins {
-    id("com.android.application")
-    id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
-    id("dev.flutter.flutter-gradle-plugin")
-}
+// File: android/app/build.gradle.kts
 
+plugins {
+ id("com.android.application")
+    // START: FlutterFire Configuration
+    id("com.google.gms.google-services")
+    // END: FlutterFire Configuration
+ // يجب أن يكون هكذا (بدون version) لكي يستخدم الإصدار المحدد في الملف الأب (1.9.24)
+ id("org.jetbrains.kotlin.android")
+ id("dev.flutter.flutter-gradle-plugin")
+}
 android {
     namespace = "com.example.fitness_app"
     compileSdk = flutter.compileSdkVersion

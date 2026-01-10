@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 abstract class AppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    scaffoldBackgroundColor: AppColors.backGroundL[10],
+    scaffoldBackgroundColor: AppColors.backgroundColor,
     fontFamily: "BalooThambi2",
     colorScheme: ColorScheme(
       brightness: Brightness.light,
@@ -53,16 +53,14 @@ abstract class AppTheme {
       errorBorder: getOutlineInputBorder(color: AppColors.red),
     ),
 
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      selectedIconTheme: IconThemeData(
-        color: AppColors.red,
-        applyTextScaling: true,
-      ),
-      selectedItemColor: AppColors.red,
+    bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+     backgroundColor: Colors.transparent,
+    elevation: 0,
+      selectedItemColor: AppColors.mainColorL,
       unselectedItemColor: AppColors.gray,
       showSelectedLabels: true,
-      showUnselectedLabels: true,
-      type: BottomNavigationBarType.shifting,
+      showUnselectedLabels: false,
+      type: BottomNavigationBarType.fixed,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(

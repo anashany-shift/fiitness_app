@@ -8,22 +8,37 @@ import '../helper/token_storage.dart';
 @module
 abstract class DioModule {
   @singleton
-  Dio get dio {
+  @Named('mainApi')
+  Dio provideMainDio() {
     final dio = Dio(BaseOptions(baseUrl: ApiConstant.baseUrl));
 
+    _addInterceptors(dio);
+    return dio;
+  }
+
+  @singleton
+  @Named('secondaryApi')
+  Dio provideThemealdb() {
+    final dio = Dio(BaseOptions(baseUrl: ApiConstant.baseUrl2));
+
+    _addInterceptors(dio);
+    return dio;
+  }
+
+  void _addInterceptors(Dio dio) {
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
           final token = await TokenStorage.getToken();
 
           if (token != null && token.isNotEmpty) {
-            options.headers['token'] = token;
+            options.headers['Authorization'] = "Bearer $token";
           }
-
           return handler.next(options);
         },
       ),
     );
+
     dio.interceptors.add(
       PrettyDioLogger(
         requestHeader: true,
@@ -33,17 +48,11 @@ abstract class DioModule {
         error: true,
         compact: true,
         maxWidth: 90,
-
         filter: (options, args) {
-          // don't print requests with uris containing '/posts'
-          if (options.path.contains('/posts')) {
-            return false;
-          }
-          // don't print responses with unit8 list data
+          if (options.path.contains('/posts')) return false;
           return !args.isResponse || !args.hasUint8ListData;
         },
       ),
     );
-    return dio;
   }
 }

@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:fitness_app/api/data_source/auth/auth_remote_data_source_impl.dart';
 import 'package:fitness_app/api/models/responses/auth/user_info_dto.dart';

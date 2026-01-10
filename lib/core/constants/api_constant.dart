@@ -1,5 +1,7 @@
+
 abstract class ApiConstant {
   static const baseUrl = "https://fitness.elevateegy.com/api/v1/";
+  static const baseUrl2 = "https://www.themealdb.com/api/json/v1/1/";
   static const loginEndPoint = "auth/signin";
   static const signUpEndPoint = "auth/signup";
   static const uploadPhotoEndPoint = "auth/upload-photo";
@@ -11,4 +13,14 @@ abstract class ApiConstant {
   static const editProfileDataEndPoint = "auth/editProfile";
   static const verifyResetCodeEndPoint = "auth/verifyResetCode";
   static const restPasswordEndPoint = "auth/resetPassword";
+  static const getMuscelsRandomForRecommendaion = "muscles/random";
+  static const muselsUpcoming = "muscles";
+  static const musclesUpcomingByGroupId = "musclesGroup/{groupId}";
+  static const getFoodCategories = "categories.php";
+  static const getLoggedUserData = "auth/profile-data";
+  static const getDifficultyLivelByPrimeMover = "levels/difficulty-levels/by-prime-mover";
+  static const getExerciseDetails = "exercises/by-muscle-difficulty";
+  static const mealsByCategory = "filter.php";
+  static const mealsDetails = "lookup.php";
+  static const logout = "auth/logout";
 }
