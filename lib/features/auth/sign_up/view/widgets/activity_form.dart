@@ -39,62 +39,64 @@ class _AcivityFormState extends State<AcivityForm> {
   Widget build(BuildContext context) {
       //  var cubit =context.read<SignupCubit>();
 
-    return   Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomSpanText(
-          text1: "your regular physical",
-          text2: "activity level?",
-        ),
-        SizedBox(height: 16.h),
-        BlurredContainer(
-          width: double.infinity,
-          child: Column(
-            children: [
-              CustomRadio(
-                title: "Rookie",
-                value: "level1",
-                groupValue: selectedActivity,
-                onChanged: _onActivityChanged ,
-              ),
-                 CustomRadio(
-                title: "Beginner",
-                value: "level2",
-                     groupValue: selectedActivity,
-                onChanged: _onActivityChanged ,
-              ),
-                 CustomRadio(
-                title: "Intermediate",
-                value: "level3",
-                   groupValue: selectedActivity,
-                onChanged: _onActivityChanged ,
-              ),
-                 CustomRadio(
-                title: "Advance",
-                value: "level4",
-                   groupValue: selectedActivity,
-                onChanged: _onActivityChanged ,
-              ),
-                 CustomRadio(
-                title: "True Beast",
-                value: "level5",
-                     groupValue: selectedActivity,
-                onChanged: _onActivityChanged ,
-              ),
-              
-
-              SizedBox(height: 16.h),
-              CustomButton(
-                buttonModel: ButtonModel(text: "Next", onPressed:() {
-                  if(selectedActivity.isNotEmpty) {
-                        widget.onPressed();
-                     }
-                },),
-              ),
-            ],
+    return   SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomSpanText(
+            text1: "your regular physical",
+            text2: "activity level?",
           ),
-        ),
-      ],
+          SizedBox(height: 16.h),
+          BlurredContainer(
+            width: double.infinity,
+            child: Column(
+              children: [
+                CustomRadio(
+                  title: "Rookie",
+                  value: "level1",
+                  groupValue: selectedActivity,
+                  onChanged: _onActivityChanged ,
+                ),
+                   CustomRadio(
+                  title: "Beginner",
+                  value: "level2",
+                       groupValue: selectedActivity,
+                  onChanged: _onActivityChanged ,
+                ),
+                   CustomRadio(
+                  title: "Intermediate",
+                  value: "level3",
+                     groupValue: selectedActivity,
+                  onChanged: _onActivityChanged ,
+                ),
+                   CustomRadio(
+                  title: "Advance",
+                  value: "level4",
+                     groupValue: selectedActivity,
+                  onChanged: _onActivityChanged ,
+                ),
+                   CustomRadio(
+                  title: "True Beast",
+                  value: "level5",
+                       groupValue: selectedActivity,
+                  onChanged: _onActivityChanged ,
+                ),
+                
+      
+                SizedBox(height: 16.h),
+                CustomButton(
+                  buttonModel: ButtonModel(text: "Next", onPressed:() {
+                    if(selectedActivity.isNotEmpty) {
+                          widget.onPressed();
+                       }
+                  },),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

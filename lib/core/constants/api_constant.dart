@@ -22,4 +22,5 @@ abstract class ApiConstant {
   static const getExerciseDetails = "exercises/by-muscle-difficulty";
   static const mealsByCategory = "filter.php";
   static const mealsDetails = "lookup.php";
+  static const logout = "auth/logout";
 }

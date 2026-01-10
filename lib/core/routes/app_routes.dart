@@ -7,6 +7,7 @@ import 'package:fitness_app/features/food_recomndation_category/view/food_recome
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit.dart';
 import 'package:fitness_app/features/main_layout/explore/view_model/cubit/explore_cubit_event.dart';
 import 'package:fitness_app/features/main_layout/main_layout.dart';
+import 'package:fitness_app/features/main_layout/profile/view_model/cubit/profile_cubit.dart';
 import 'package:fitness_app/features/main_layout/smart_couch/view/get_started_view.dart';
 import 'package:fitness_app/features/main_layout/smart_couch/view/smart_couch_caht_view.dart';
 import 'package:fitness_app/features/main_layout/smart_couch/view_model/cubit/smart_couch_cubit.dart';
@@ -41,6 +42,10 @@ abstract class AppRoutes {
               BlocProvider(
                 create: (context) =>
                     getIt.get<WorkoutCubit>()..doIntent(WorkoutGetAllData()),
+              ),
+               BlocProvider(
+                create: (context) =>
+                    getIt.get<ProfileCubit>()..getLoggedUserInfo()
               ),
             ],
             child: const MainLayout(),

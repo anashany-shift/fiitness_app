@@ -54,12 +54,12 @@ class FoodRecommendationSection extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {
                             final categoryName = foodCategories?[index]
-                                .name; // 🆕 استخراج اسم الفئة
+                                .name; 
                             if (categoryName != null) {
                               Navigator.pushNamed(
                                 context,
                                 Routes.foodRecomendationCategory,
-                                arguments: categoryName, // 🆗 تمرير اسم الفئة
+                                arguments: categoryName, 
                               );
                             }
                           },

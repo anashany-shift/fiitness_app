@@ -49,6 +49,7 @@ import '../../domain/repo/main_layout/workout_repo.dart' as _i42;
 import '../../domain/use_cases/auth/get_logged_user_data_use_case.dart'
     as _i804;
 import '../../domain/use_cases/auth/login_use_case.dart' as _i40;
+import '../../domain/use_cases/auth/logout_usecase.dart' as _i722;
 import '../../domain/use_cases/auth/signup_use_case.dart' as _i86;
 import '../../domain/use_cases/exercise/get_difficulty_level_use_case.dart'
     as _i183;
@@ -82,6 +83,8 @@ import '../../features/food_recomndation_category/view_model/cubit/food_recommen
     as _i475;
 import '../../features/main_layout/explore/view_model/cubit/explore_cubit.dart'
     as _i77;
+import '../../features/main_layout/profile/view_model/cubit/profile_cubit.dart'
+    as _i691;
 import '../../features/main_layout/smart_couch/view_model/cubit/smart_couch_cubit.dart'
     as _i202;
 import '../../features/main_layout/workout/view_model/cubit/workout_cubit.dart'
@@ -174,6 +177,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i40.LoginUseCase>(
       () => _i40.LoginUseCase(gh<_i894.AuthRepo>()),
     );
+    gh.factory<_i722.LogoutUsecase>(
+      () => _i722.LogoutUsecase(gh<_i894.AuthRepo>()),
+    );
     gh.factory<_i86.SignupUseCase>(
       () => _i86.SignupUseCase(gh<_i894.AuthRepo>()),
     );
@@ -203,6 +209,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i799.GetExerciseDatailsUseCase>(
       () => _i799.GetExerciseDatailsUseCase(gh<_i936.ExerciseRepo>()),
+    );
+    gh.factory<_i691.ProfileCubit>(
+      () => _i691.ProfileCubit(
+        getLoggedUserDataUseCase: gh<_i804.GetLoggedUserDataUseCase>(),
+        logoutUsecase: gh<_i722.LogoutUsecase>(),
+      ),
     );
     gh.factory<_i474.LoginCubit>(
       () => _i474.LoginCubit(gh<_i40.LoginUseCase>()),
