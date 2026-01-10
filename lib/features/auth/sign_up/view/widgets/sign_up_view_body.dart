@@ -69,7 +69,7 @@ Widget build(BuildContext context) {
           ),
 
           if (cubit.state.pageIndex > 0) ...[
-            SizedBox(height: 85.h),
+            SizedBox(height: 60.h),
             Center(
               child: Stack(
                 alignment: Alignment.center,

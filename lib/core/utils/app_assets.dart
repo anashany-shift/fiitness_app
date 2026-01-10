@@ -36,4 +36,10 @@ abstract class AppAssets {
   static const String youtube= "assets/icons/youtube-youtube-svgrepo-com.svg";
   static const String smartCouchBg= "assets/images/smart_couch_bg.jpg";
   static const String smartCouchAvatar= "assets/images/ropot.png";
+  static const String changePassword= "assets/icons/changepassword.svg";
+  static const String selectLanguage= "assets/icons/24Language.svg";
+  static const String security= "assets/icons/security.svg";
+  static const String privacyPlicy= "assets/icons/privacy.svg";
+  static const String help= "assets/icons/helpicon.svg";
+  static const String logout= "assets/icons/logouticon.svg";
 }

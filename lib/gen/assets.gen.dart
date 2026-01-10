@@ -17,6 +17,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/20%.png
   AssetGenImage get a20 => const AssetGenImage('assets/icons/20%.png');
 
+  /// File path: assets/icons/24Language.svg
+  String get a24Language => 'assets/icons/24Language.svg';
+
   /// File path: assets/icons/Apple.svg
   String get apple => 'assets/icons/Apple.svg';
 
@@ -37,6 +40,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/change.png
   AssetGenImage get change => const AssetGenImage('assets/icons/change.png');
+
+  /// File path: assets/icons/changepassword.svg
+  String get changepassword => 'assets/icons/changepassword.svg';
 
   /// File path: assets/icons/chat ai.png
   AssetGenImage get chatAi => const AssetGenImage('assets/icons/chat ai.png');
@@ -77,6 +83,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/help.png
   AssetGenImage get help => const AssetGenImage('assets/icons/help.png');
 
+  /// File path: assets/icons/helpicon.svg
+  String get helpicon => 'assets/icons/helpicon.svg';
+
   /// File path: assets/icons/home.png
   AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
 
@@ -85,6 +94,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/logout.png
   AssetGenImage get logout => const AssetGenImage('assets/icons/logout.png');
+
+  /// File path: assets/icons/logouticon.svg
+  String get logouticon => 'assets/icons/logouticon.svg';
 
   /// File path: assets/icons/male.png
   AssetGenImage get malePng => const AssetGenImage('assets/icons/male.png');
@@ -98,12 +110,18 @@ class $AssetsIconsGen {
   /// File path: assets/icons/password.svg
   String get password => 'assets/icons/password.svg';
 
+  /// File path: assets/icons/privacy.svg
+  String get privacy => 'assets/icons/privacy.svg';
+
   /// File path: assets/icons/profile.png
   AssetGenImage get profilePng =>
       const AssetGenImage('assets/icons/profile.png');
 
   /// File path: assets/icons/profile.svg
   String get profileSvg => 'assets/icons/profile.svg';
+
+  /// File path: assets/icons/security.svg
+  String get security => 'assets/icons/security.svg';
 
   /// File path: assets/icons/smart.svg
   String get smart => 'assets/icons/smart.svg';
@@ -118,12 +136,14 @@ class $AssetsIconsGen {
   /// List of all assets
   List<dynamic> get values => [
     a20,
+    a24Language,
     apple,
     language,
     lockSetting,
     arrow,
     arrowDown,
     change,
+    changepassword,
     chatAi,
     chatImage,
     clickedFemale,
@@ -136,15 +156,19 @@ class $AssetsIconsGen {
     google,
     gym,
     help,
+    helpicon,
     home,
     logo,
     logout,
+    logouticon,
     malePng,
     maleSvg,
     name,
     password,
+    privacy,
     profilePng,
     profileSvg,
+    security,
     smart,
     workout,
     youtubeYoutubeSvgrepoCom,

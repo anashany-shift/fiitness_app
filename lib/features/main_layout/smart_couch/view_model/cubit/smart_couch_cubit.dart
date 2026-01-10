@@ -28,20 +28,10 @@ class SmartCouchCubit extends Cubit<SmartCouchState> {
     init();
   }
 
-  // void _scrollToBottom() {
-  //   Future.delayed(const Duration(milliseconds: 100), () {
-  //     if (scrollController.hasClients) {
-  //       scrollController.animateTo(
-  //        0.0,
-  //         duration: const Duration(milliseconds: 300),
-  //         curve: Curves.easeOut,
-  //       );
-  //     }
-  //   });
-  // }
+  
 
   void init() async {
-    await getUserId();
+    await getUserData();
   }
 
   Future<void> sendMessage() async {
@@ -70,10 +60,9 @@ class SmartCouchCubit extends Cubit<SmartCouchState> {
     );
 
     promptController.clear();
-   // _scrollToBottom();
     try {
       if (userId.isEmpty) {
-        await getUserId();
+        await getUserData();
       }
 
       if (currentChatId.isEmpty) {
@@ -115,7 +104,7 @@ class SmartCouchCubit extends Cubit<SmartCouchState> {
     }
   }
 
-  Future<void> getUserId() async {
+  Future<void> getUserData() async {
     emit(state.copyWith(loggedUserDataEntity: BaseState.loading()));
     final result = await getLoggedUserDataUseCase.call();
     switch (result) {
